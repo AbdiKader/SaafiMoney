@@ -9,7 +9,7 @@ using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using SaafiMoney.Data;
-using SaafiMoney.Models;
+using SaafiMoney.Data.Models;
 using SaafiMoney.Services;
 
 namespace SaafiMoney
