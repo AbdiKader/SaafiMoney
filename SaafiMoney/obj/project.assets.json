@@ -5028,6 +5028,20 @@
         "runtime": {
           "lib/netstandard1.3/Microsoft.WindowsAzure.Storage.dll": {}
         }
+      },
+      "SaafiMoney.Data/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v2.0",
+        "dependencies": {
+          "Microsoft.AspNetCore.All": "2.0.5",
+          "Microsoft.EntityFrameworkCore.Tools": "2.0.1"
+        },
+        "compile": {
+          "bin/placeholder/SaafiMoney.Data.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/SaafiMoney.Data.dll": {}
+        }
       }
     }
   },
@@ -13112,6 +13126,11 @@
         "windowsazure.storage.8.1.4.nupkg.sha512",
         "windowsazure.storage.nuspec"
       ]
+    },
+    "SaafiMoney.Data/1.0.0": {
+      "type": "project",
+      "path": "../SaafiMoney.Data/SaafiMoney.Data.csproj",
+      "msbuildProject": "../SaafiMoney.Data/SaafiMoney.Data.csproj"
     }
   },
   "projectFileDependencyGroups": {
@@ -13119,7 +13138,8 @@
       "Microsoft.AspNetCore.All >= 2.0.3",
       "Microsoft.EntityFrameworkCore.Tools >= 2.0.1",
       "Microsoft.NETCore.App >= 2.0.0",
-      "Microsoft.VisualStudio.Web.CodeGeneration.Design >= 2.0.1"
+      "Microsoft.VisualStudio.Web.CodeGeneration.Design >= 2.0.1",
+      "SaafiMoney.Data >= 1.0.0"
     ]
   },
   "packageFolders": {
@@ -13154,7 +13174,11 @@
       },
       "frameworks": {
         "netcoreapp2.0": {
-          "projectReferences": {}
+          "projectReferences": {
+            "C:\\Users\\abdik\\Desktop\\SaafiMoney\\SaafiMoney.Data\\SaafiMoney.Data.csproj": {
+              "projectPath": "C:\\Users\\abdik\\Desktop\\SaafiMoney\\SaafiMoney.Data\\SaafiMoney.Data.csproj"
+            }
+          }
         }
       },
       "warningProperties": {
@@ -13193,5 +13217,16 @@
         "warn": true
       }
     }
-  }
+  },
+  "logs": [
+    {
+      "code": "NU1605",
+      "level": "Error",
+      "message": "Detected package downgrade: Microsoft.AspNetCore.All from 2.0.5 to 2.0.3. Reference the package directly from the project to select a different version. \r\n SaafiMoney -> SaafiMoney.Data -> Microsoft.AspNetCore.All (>= 2.0.5) \r\n SaafiMoney -> Microsoft.AspNetCore.All (>= 2.0.3)",
+      "libraryId": "Microsoft.AspNetCore.All",
+      "targetGraphs": [
+        ".NETCoreApp,Version=v2.0"
+      ]
+    }
+  ]
 }
