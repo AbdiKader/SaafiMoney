@@ -23,4 +23,8 @@
     <ProjectReference Include="..\SaafiMoney.Service\SaafiMoney.Service.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="Models\RecipientViewModel\" />
+  </ItemGroup>
+
 </Project>

@@ -5,9 +5,9 @@
     <tbody>
         @foreach(var sender in Model.SenderList)
         {
-            <tr>
-                <td>@sender.FirstName</td>
-                <td>@sender.LastName</td>
+            <tr >
+                <td ><a asp-controller="Sender" asp-action="Detail" asp-route-id="@sender.ID">@sender.FirstName &nbsp; @sender.LastName </a></td>
+                
                 
             </tr>
 

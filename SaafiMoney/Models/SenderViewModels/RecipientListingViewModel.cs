@@ -1,6 +1,6 @@
 ﻿namespace SaafiMoney.Models.SenderViewModels
 {
-    public class RecipientListingViewModeel
+    public class RecipientListingViewModel
     {
         public int ID { get; set; }
         public string FirstName { get; set; }

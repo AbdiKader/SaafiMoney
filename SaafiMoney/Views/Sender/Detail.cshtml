@@ -1,0 +1,24 @@
+﻿@model SaafiMoney.Models.SenderViewModels.SenderDetailViewModel
+
+<h1>Sender Details </h1>
+<h3>@Model.Sender.FirstName &nbsp; @Model.Sender.LastName</h3>
+<h3>@Model.Sender.Address <br />
+    @Model.Sender.City, &nbsp; @Model.Sender.State, @Model.Sender.Zip  <br />
+    @Model.Sender.Phone <br />
+</h3>
+
+<h1>Benificiary List</h1>
+
+<table>
+    <tbody>
+        @foreach(var beni in Model.Recipients)
+        {
+            <tr>
+                <td>@beni.FirstName &nbsp; @beni.LastName</td>
+                <td>@beni.Country</td>
+                <td>@beni.Phone</td>
+            </tr>
+
+        }
+    </tbody>
+</table>
