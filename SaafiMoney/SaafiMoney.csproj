@@ -20,6 +20,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\SaafiMoney.Data\SaafiMoney.Data.csproj" />
+    <ProjectReference Include="..\SaafiMoney.Service\SaafiMoney.Service.csproj" />
   </ItemGroup>
 
 </Project>

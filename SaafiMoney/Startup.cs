@@ -11,6 +11,7 @@ using Microsoft.Extensions.DependencyInjection;
 using SaafiMoney.Data;
 using SaafiMoney.Data.Models;
 using SaafiMoney.Services;
+using SaafiMoney.Service;
 
 namespace SaafiMoney
 {
@@ -35,6 +36,7 @@ namespace SaafiMoney
 
             // Add application services.
             services.AddTransient<IEmailSender, EmailSender>();
+            services.AddScoped<ISender, SenderService>();
 
             services.AddMvc();
         }

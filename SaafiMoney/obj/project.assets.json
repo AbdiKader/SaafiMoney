@@ -5042,6 +5042,19 @@
         "runtime": {
           "bin/placeholder/SaafiMoney.Data.dll": {}
         }
+      },
+      "SaafiMoney.Service/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v2.0",
+        "dependencies": {
+          "SaafiMoney.Data": "1.0.0"
+        },
+        "compile": {
+          "bin/placeholder/SaafiMoney.Service.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/SaafiMoney.Service.dll": {}
+        }
       }
     }
   },
@@ -13132,6 +13145,11 @@
       "type": "project",
       "path": "../SaafiMoney.Data/SaafiMoney.Data.csproj",
       "msbuildProject": "../SaafiMoney.Data/SaafiMoney.Data.csproj"
+    },
+    "SaafiMoney.Service/1.0.0": {
+      "type": "project",
+      "path": "../SaafiMoney.Service/SaafiMoney.Service.csproj",
+      "msbuildProject": "../SaafiMoney.Service/SaafiMoney.Service.csproj"
     }
   },
   "projectFileDependencyGroups": {
@@ -13140,7 +13158,8 @@
       "Microsoft.EntityFrameworkCore.Tools >= 2.0.1",
       "Microsoft.NETCore.App >= 2.0.0",
       "Microsoft.VisualStudio.Web.CodeGeneration.Design >= 2.0.1",
-      "SaafiMoney.Data >= 1.0.0"
+      "SaafiMoney.Data >= 1.0.0",
+      "SaafiMoney.Service >= 1.0.0"
     ]
   },
   "packageFolders": {
@@ -13178,6 +13197,9 @@
           "projectReferences": {
             "C:\\Users\\abdik\\Desktop\\SaafiMoney\\SaafiMoney.Data\\SaafiMoney.Data.csproj": {
               "projectPath": "C:\\Users\\abdik\\Desktop\\SaafiMoney\\SaafiMoney.Data\\SaafiMoney.Data.csproj"
+            },
+            "C:\\Users\\abdik\\Desktop\\SaafiMoney\\SaafiMoney.Service\\SaafiMoney.Service.csproj": {
+              "projectPath": "C:\\Users\\abdik\\Desktop\\SaafiMoney\\SaafiMoney.Service\\SaafiMoney.Service.csproj"
             }
           }
         }
