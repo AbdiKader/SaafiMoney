@@ -37,6 +37,7 @@ namespace SaafiMoney
             // Add application services.
             services.AddTransient<IEmailSender, EmailSender>();
             services.AddScoped<ISender, SenderService>();
+            services.AddScoped<IRecipient, RecipientService>();
 
             services.AddMvc();
         }
