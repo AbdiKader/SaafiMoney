@@ -4,3 +4,6 @@ C:\Users\abdik\Desktop\SaafiMoney\SaafiMoney.Data\obj\Debug\netcoreapp2.0\SaafiM
 C:\Users\abdik\Desktop\SaafiMoney\SaafiMoney.Data\obj\Debug\netcoreapp2.0\SaafiMoney.Data.csproj.CoreCompileInputs.cache
 C:\Users\abdik\Desktop\SaafiMoney\SaafiMoney.Data\obj\Debug\netcoreapp2.0\SaafiMoney.Data.AssemblyInfoInputs.cache
 C:\Users\abdik\Desktop\SaafiMoney\SaafiMoney.Data\obj\Debug\netcoreapp2.0\SaafiMoney.Data.AssemblyInfo.cs
+C:\Users\abdik\Desktop\SaafiMoney\SaafiMoney.Data\bin\Debug\netcoreapp2.0\SaafiMoney.Data.pdb
+C:\Users\abdik\Desktop\SaafiMoney\SaafiMoney.Data\obj\Debug\netcoreapp2.0\SaafiMoney.Data.dll
+C:\Users\abdik\Desktop\SaafiMoney\SaafiMoney.Data\obj\Debug\netcoreapp2.0\SaafiMoney.Data.pdb
