@@ -3,6 +3,7 @@ using System.Threading.Tasks;
 using SaafiMoney.Data;
 using SaafiMoney.Data.Models;
 using Microsoft.EntityFrameworkCore;
+using System.Linq;
 
 namespace SaafiMoney.Service
 {
@@ -33,7 +34,10 @@ namespace SaafiMoney.Service
 
         public Sender GetById(int id)
         {
-            throw new System.NotImplementedException();
+            var sender = _context.Senders
+                .Where(s => s.ID == id).Include(s => s.Recipients)
+                .FirstOrDefault();
+            return sender;
         }
 
         public Task UpdateAddress(int senderId, string newAddress)
