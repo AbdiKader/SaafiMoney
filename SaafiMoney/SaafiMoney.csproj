@@ -27,4 +27,10 @@
     <Folder Include="Models\RecipientViewModel\" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Content Update="Views\_ViewStart.cshtml">
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </Content>
+  </ItemGroup>
+
 </Project>
