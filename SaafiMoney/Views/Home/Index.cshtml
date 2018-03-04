@@ -1,7 +1,5 @@
-﻿
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="en">
-
 <head>
 
     <meta charset="utf-8">
@@ -22,33 +20,44 @@
     <!-- Custom styles for this template -->
     <link href="css/landing-page.min.css" rel="stylesheet">
 
+    <environment names="Development">
+        <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap-def.css" />
+        <link rel="stylesheet" href="~/css/site.css" />
+    </environment>
+    <environment names="Staging,Production">
+        <link rel="stylesheet" href="https://ajax.aspnetcdn.com/ajax/bootstrap/3.3.7/css/bootstrap.min.css"
+              asp-fallback-href="~/lib/bootstrap/dist/css/bootstrap-def.min.css"
+              asp-fallback-test-class="sr-only" asp-fallback-test-property="position" asp-fallback-test-value="absolute" />
+        <link rel="stylesheet" href="~/css/site.min.css" asp-append-version="true" />
+    </environment>
+    @*@Html.Raw(JavaScriptSnippet.FullScript)*@
 </head>
 
 <body>
 
-    <!-- Navigation -->
-    <nav class="navbar navbar-light bg-light static-top">
+    <div class="navbar navbar-light navbar-fixed-top">
+
         <div class="container">
-            <a class="navbar-brand" href="#">Saafi</a>
-            <a class="btn btn-primary" href="#">Sign In</a>
+            <div class="navbar-collapse collapse">
+                <a class="navbar-brand" href="#">Saafi</a>
+
+                <ul class="nav navbar-nav navbar-left d-inline-block">
+
+                    <li><a href="#">How It Works</a></li>
+                    <li><a href="#">Contact Us</a></li>
+                    <li><a href="#">Help</a></li>
+                </ul>
+                <ul class="nav navbar-nav navbar-right d-inline-block"><li>@await Html.PartialAsync("_LoginPartial")</li></ul>
+            </div>
         </div>
-    </nav>
+    </div>
 
     <!-- Masthead -->
     <header class="masthead  text-white text-center">
 
-        <div class="overlay">
-
-
-        </div>
-
         <div class="container">
-
-
             <div class="row">
-
                 <div class="col-xl-9 mx-auto">
-
                     <h1 class="mb-5">
                         A CHEAP WAY TO SEND MONEY TO YOUR LOVED ONES
                     </h1>
@@ -59,7 +68,7 @@
                         <table class="table table-striped " style="width: 100%; max-width: 100%; margin-bottom: 20px; background-color: transparent; border-spacing: 0; border-collapse: collapse; box-sizing: border-box; display: table;border-collapse: separate; border-spacing: 2px; border-color: grey; font-size: 14px; line-height: 1.42857143; text-align:center">
 
 
-                            <tbody style="display: table-row-group;vertical-align: middle;border-color: inherit;">
+                            <tbody style="display: table-row-group;vertical-align: middle;border-color: inherit; background-color:#0badf2">
 
                                 <tr style="display: table-row; vertical-align: inherit; border-color: inherit;">
                                     <td style="padding: 8px;line-height: 1.42857143;vertical-align: top; border-top: 1px solid #ddd;">
@@ -250,7 +259,7 @@
                     <span class="btn btn-lg btn-primary capital">Get started</span>
                 </a>
             </div>
-</section>
+    </section>
     <!-- Call to Action -->
     <section class="call-to-action text-white text-center">
         <div class="overlay"></div>
