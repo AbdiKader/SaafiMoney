@@ -15,7 +15,7 @@ h6 {
 header.masthead {
   position: relative;
   background-color: #343a40;
-  background: url("../images/bg-masthead.jpg") no-repeat center center;
+  background: url("../images/bg-masthead-1.jpg") no-repeat center center;
   -webkit-background-size: cover;
   -moz-background-size: cover;
   -o-background-size: cover;
@@ -42,6 +42,7 @@ header.masthead h1 {
   header.masthead {
     padding-top: 12rem;
     padding-bottom: 12rem;
+    height: 75vh;
   }
   header.masthead h1 {
     font-size: 3rem;
