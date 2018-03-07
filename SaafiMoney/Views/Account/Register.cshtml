@@ -54,30 +54,68 @@
                     <div asp-validation-summary="All" class="text-danger"></div>
 
                     <div class="form-group wrap-input100 validate-input m-t-85 m-b-35">
-                        <input asp-for="Email" class="form-control input100" />
-                        <span asp-validation-for="Email" class="text-danger focus-input100" data-placeholder="Username"></span>
+                        <input asp-for="FirstName" class="form-control input100" />
+                        <span asp-validation-for="FirstName" class="text-danger focus-input100" data-placeholder="First Name"></span>
                     </div>
-                    <div class="form-group wrap-input100 validate-input m-b-50">
-                        <input asp-for="Password" class="form-control input100" />
-                        <span asp-validation-for="Password" class="text-danger focus-input100" data-placeholder="Password"></span>
+
+                    <div class="form-group wrap-input100 validate-input m-t-85 m-b-35">
+                        <input asp-for="LastName" class="form-control input100" />
+                        <span asp-validation-for="LastName" class="text-danger focus-input100" data-placeholder="Last Name"></span>
                     </div>
-                    <div class="form-group wrap-input100 validate-input m-b-50 ">
-                        <input asp-for="ConfirmPassword" class="form-control input100" />
-                        <span asp-validation-for="ConfirmPassword" class="text-danger focus-input100" data-placeholder="Confirm Password"></span>
+
+                    <div class="form-group wrap-input100 validate-input m-t-85 m-b-35">
+                        <input asp-for="Address" class="form-control input100" />
+                        <span asp-validation-for="Address" class="text-danger focus-input100" data-placeholder="Address"></span>
                     </div>
-                    <div class="form-group container-login100-form-btn">
-                        <button style="border-color:#17a2b8; background-color:#17a2b8" type="submit" class="login100-form-btn"> Register</button>
+
+                    <div class="form-group wrap-input100 validate-input m-t-85 m-b-35">
+                        <input asp-for="City" class="form-control input100" />
+                        <span asp-validation-for="City" class="text-danger focus-input100" data-placeholder="City"></span>
                     </div>
-                    <li>
-                        <span class="txt1">
-                            Already have an account?
-                        </span>
-                        <a asp-action="Login" asp-route-returnurl="@ViewData["ReturnUrl"]" class="txt2">
-                            Log in here
-                        </a>
-                    </li>
-                </form>
+
+                    <div class="form-group wrap-input100 validate-input m-t-85 m-b-35">
+                    <input asp-for="State" class="form-control input100" />
+                    <span asp-validation-for="State" class="text-danger focus-input100" data-placeholder="State"></span>
+                    </div>
+
+
+            <div class="form-group wrap-input100 validate-input m-t-85 m-b-35">
+                <input asp-for="Zip" class="form-control input100" />
+                <span asp-validation-for="Zip" class="text-danger focus-input100" data-placeholder="Zip"></span>
             </div>
+
+            <div class="form-group wrap-input100 validate-input m-t-85 m-b-35">
+                <input asp-for="Phone" class="form-control input100" />
+                <span asp-validation-for="Phone" class="text-danger focus-input100" data-placeholder="Phone"></span>
+            </div>
+
+
+
+            <div class="form-group wrap-input100 validate-input m-t-85 m-b-35">
+                <input asp-for="Email" class="form-control input100" />
+                <span asp-validation-for="Email" class="text-danger focus-input100" data-placeholder="Username"></span>
+            </div>
+            <div class="form-group wrap-input100 validate-input m-b-50">
+                <input asp-for="Password" class="form-control input100" />
+                <span asp-validation-for="Password" class="text-danger focus-input100" data-placeholder="Password"></span>
+            </div>
+            <div class="form-group wrap-input100 validate-input m-b-50 ">
+                <input asp-for="ConfirmPassword" class="form-control input100" />
+                <span asp-validation-for="ConfirmPassword" class="text-danger focus-input100" data-placeholder="Confirm Password"></span>
+            </div>
+            <div class="form-group container-login100-form-btn">
+                <button style="border-color:#17a2b8; background-color:#17a2b8" type="submit" class="login100-form-btn"> Register</button>
+            </div>
+            <li>
+                <span class="txt1">
+                    Already have an account?
+                </span>
+                <a asp-action="Login" asp-route-returnurl="@ViewData["ReturnUrl"]" class="txt2">
+                    Log in here
+                </a>
+            </li>
+            </form>
+        </div>
         </div>
     </div>
     @section Scripts {

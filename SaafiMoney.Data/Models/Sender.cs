@@ -12,7 +12,7 @@ namespace SaafiMoney.Data.Models
             public string Address { get; set; }
             public string City { get; set; }
             public string State { get; set; }
-            public int Zip { get; set; }
+            public int Zip { get; set; } 
             public string IdImageUrl { get; set; }
 
             public virtual IEnumerable<Recipient> Recipients { get; set; }
