@@ -11,7 +11,7 @@ using System;
 namespace SaafiMoney.Data.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20180221083144_First Migration")]
+    [Migration("20180307084456_First Migration")]
     partial class FirstMigration
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -129,12 +129,52 @@ namespace SaafiMoney.Data.Migrations
                     b.ToTable("AspNetUserTokens");
                 });
 
-            modelBuilder.Entity("SaafiMoney.Data.Models.ApplicationUser", b =>
+            modelBuilder.Entity("SaafiMoney.Data.Models.Recipient", b =>
+                {
+                    b.Property<int>("ID")
+                        .ValueGeneratedOnAdd();
+
+                    b.Property<string>("Country");
+
+                    b.Property<string>("FirstName");
+
+                    b.Property<string>("LastName");
+
+                    b.Property<string>("Phone");
+
+                    b.Property<string>("SenderId");
+
+                    b.HasKey("ID");
+
+                    b.HasIndex("SenderId");
+
+                    b.ToTable("Recipients");
+                });
+
+            modelBuilder.Entity("SaafiMoney.Data.Models.Record", b =>
+                {
+                    b.Property<int>("ID")
+                        .ValueGeneratedOnAdd();
+
+                    b.Property<decimal>("Amount");
+
+                    b.Property<DateTime>("Created");
+
+                    b.HasKey("ID");
+
+                    b.ToTable("Records");
+                });
+
+            modelBuilder.Entity("SaafiMoney.Data.Models.Sender", b =>
                 {
                     b.Property<string>("Id")
                         .ValueGeneratedOnAdd();
 
                     b.Property<int>("AccessFailedCount");
+
+                    b.Property<string>("Address");
+
+                    b.Property<string>("City");
 
                     b.Property<string>("ConcurrencyStamp")
                         .IsConcurrencyToken();
@@ -143,6 +183,12 @@ namespace SaafiMoney.Data.Migrations
                         .HasMaxLength(256);
 
                     b.Property<bool>("EmailConfirmed");
+
+                    b.Property<string>("FirstName");
+
+                    b.Property<string>("IdImageUrl");
+
+                    b.Property<string>("LastName");
 
                     b.Property<bool>("LockoutEnabled");
 
@@ -156,16 +202,22 @@ namespace SaafiMoney.Data.Migrations
 
                     b.Property<string>("PasswordHash");
 
+                    b.Property<string>("Phone");
+
                     b.Property<string>("PhoneNumber");
 
                     b.Property<bool>("PhoneNumberConfirmed");
 
                     b.Property<string>("SecurityStamp");
 
+                    b.Property<string>("State");
+
                     b.Property<bool>("TwoFactorEnabled");
 
                     b.Property<string>("UserName")
                         .HasMaxLength(256);
+
+                    b.Property<int>("Zip");
 
                     b.HasKey("Id");
 
@@ -180,56 +232,6 @@ namespace SaafiMoney.Data.Migrations
                     b.ToTable("AspNetUsers");
                 });
 
-            modelBuilder.Entity("SaafiMoney.Data.Models.Recipient", b =>
-                {
-                    b.Property<int>("ID")
-                        .ValueGeneratedOnAdd();
-
-                    b.Property<string>("Country");
-
-                    b.Property<string>("FirstName");
-
-                    b.Property<string>("LastName");
-
-                    b.Property<string>("Phone");
-
-                    b.Property<int?>("SenderID");
-
-                    b.HasKey("ID");
-
-                    b.HasIndex("SenderID");
-
-                    b.ToTable("Recipients");
-                });
-
-            modelBuilder.Entity("SaafiMoney.Data.Models.Sender", b =>
-                {
-                    b.Property<int>("ID")
-                        .ValueGeneratedOnAdd();
-
-                    b.Property<string>("Address");
-
-                    b.Property<decimal>("Amount");
-
-                    b.Property<string>("City");
-
-                    b.Property<string>("FirstName");
-
-                    b.Property<string>("IdImageUrl");
-
-                    b.Property<string>("LastName");
-
-                    b.Property<string>("Phone");
-
-                    b.Property<string>("State");
-
-                    b.Property<int>("Zip");
-
-                    b.HasKey("ID");
-
-                    b.ToTable("Senders");
-                });
-
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRoleClaim<string>", b =>
                 {
                     b.HasOne("Microsoft.AspNetCore.Identity.IdentityRole")
@@ -240,7 +242,7 @@ namespace SaafiMoney.Data.Migrations
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityUserClaim<string>", b =>
                 {
-                    b.HasOne("SaafiMoney.Data.Models.ApplicationUser")
+                    b.HasOne("SaafiMoney.Data.Models.Sender")
                         .WithMany()
                         .HasForeignKey("UserId")
                         .OnDelete(DeleteBehavior.Cascade);
@@ -248,7 +250,7 @@ namespace SaafiMoney.Data.Migrations
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityUserLogin<string>", b =>
                 {
-                    b.HasOne("SaafiMoney.Data.Models.ApplicationUser")
+                    b.HasOne("SaafiMoney.Data.Models.Sender")
                         .WithMany()
                         .HasForeignKey("UserId")
                         .OnDelete(DeleteBehavior.Cascade);
@@ -261,7 +263,7 @@ namespace SaafiMoney.Data.Migrations
                         .HasForeignKey("RoleId")
                         .OnDelete(DeleteBehavior.Cascade);
 
-                    b.HasOne("SaafiMoney.Data.Models.ApplicationUser")
+                    b.HasOne("SaafiMoney.Data.Models.Sender")
                         .WithMany()
                         .HasForeignKey("UserId")
                         .OnDelete(DeleteBehavior.Cascade);
@@ -269,7 +271,7 @@ namespace SaafiMoney.Data.Migrations
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityUserToken<string>", b =>
                 {
-                    b.HasOne("SaafiMoney.Data.Models.ApplicationUser")
+                    b.HasOne("SaafiMoney.Data.Models.Sender")
                         .WithMany()
                         .HasForeignKey("UserId")
                         .OnDelete(DeleteBehavior.Cascade);
@@ -279,7 +281,7 @@ namespace SaafiMoney.Data.Migrations
                 {
                     b.HasOne("SaafiMoney.Data.Models.Sender", "Sender")
                         .WithMany("Recipients")
-                        .HasForeignKey("SenderID");
+                        .HasForeignKey("SenderId");
                 });
 #pragma warning restore 612, 618
         }

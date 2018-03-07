@@ -21,7 +21,7 @@ namespace SaafiMoney.Service
             throw new System.NotImplementedException();
         }
 
-        public Task Delete(int senderId)
+        public Task Delete(string senderId)
         {
             throw new System.NotImplementedException();
         }
@@ -32,40 +32,40 @@ namespace SaafiMoney.Service
                 .Include(sender => sender.Recipients);
         }
 
-        public Sender GetById(int id)
+        public Sender GetById(string id)
         {
             var sender = _context.Senders
-                .Where(s => s.ID == id).Include(s => s.Recipients)
+                .Where(s => s.Id == id).Include(s => s.Recipients)
                 .FirstOrDefault();
             return sender;
         }
 
-        public Task UpdateAddress(int senderId, string newAddress)
+        public Task UpdateAddress(string senderAddress, string newAddress)
         {
             throw new System.NotImplementedException();
         }
 
-        public Task UpdateCity(int senderId, string newCity)
+        public Task UpdateCity(string senderCity, string newCity)
         {
             throw new System.NotImplementedException();
         }
 
-        public Task UpdateIdImageUrl(int senderId, string newIdImageUrl)
+        public Task UpdateIdImageUrl(string senderImageUrl, string newIdImageUrl)
         {
             throw new System.NotImplementedException();
         }
 
-        public Task UpdatePhone(int senderId, string newPhone)
+        public Task UpdatePhone(string senderPhone, string newPhone)
         {
             throw new System.NotImplementedException();
         }
 
-        public Task UpdateState(int senderId, string newState)
+        public Task UpdateState(string senderState, string newState)
         {
             throw new System.NotImplementedException();
         }
 
-        public Task UpdateZip(int senderId, int newZip)
+        public Task UpdateZip(int senderZip, int newZip)
         {
             throw new System.NotImplementedException();
         }

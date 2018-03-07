@@ -19,7 +19,7 @@ namespace SaafiMoney.Controllers
         {
             var senders = _senderService.GetAll().Select(sender => new SenderListingViewModel
             {
-                ID = sender.ID,
+                ID = sender.Id,
                 FirstName = sender.FirstName,
                 LastName = sender.LastName
             });
@@ -32,7 +32,7 @@ namespace SaafiMoney.Controllers
             return View(model);
         }
 
-        public IActionResult Detail(int id)
+        public IActionResult Detail(string id)
         {
             var sender = _senderService.GetById(id);
             var recipients = sender.Recipients;
@@ -67,7 +67,7 @@ namespace SaafiMoney.Controllers
         {
             return new SenderListingViewModel
             {
-                ID = sender.ID,
+                ID = sender.Id,
                 FirstName = sender.FirstName,
                 LastName = sender.LastName,
                 Address = sender.Address,
