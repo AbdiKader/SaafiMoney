@@ -35,7 +35,7 @@ namespace SaafiMoney.Service
 
         public IEnumerable<Sender> GetAll()
         {
-            throw new System.NotImplementedException();
+            return _context.Senders.Include(s => s.Recipients);
         }
 
         public Recipient GetById(int id)
