@@ -48,7 +48,9 @@ namespace SaafiMoney.Service
 
         public Sender GetById(string id)
         {
-            throw new System.NotImplementedException();
+            return _context.Senders.Where(s => s.Id == id)
+                .Include(r => r.Recipients)
+                .FirstOrDefault();
         }
 
         public Task UpdateAddress(string senderAddress, string newAddress)
