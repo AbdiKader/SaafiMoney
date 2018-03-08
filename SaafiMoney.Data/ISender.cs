@@ -7,11 +7,13 @@ namespace SaafiMoney.Data
     public interface ISender
     {
         Sender GetById(string id);
+        Recipient GetById(int id);
+        IEnumerable<Recipient> GetAll(string id);
         IEnumerable<Sender> GetAll();
         
-
-        Task Create(Sender sender);
-        Task Delete(string senderId);
+        
+        Task Create(Recipient recipient);
+        Task Delete(string recipientId);
         Task UpdateAddress(string senderAddress, string newAddress);
         Task UpdateCity(string senderCity, string newCity);
         Task UpdateState(string senderState, string newState);

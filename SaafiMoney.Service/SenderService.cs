@@ -16,28 +16,39 @@ namespace SaafiMoney.Service
             _context = context;
         }
 
-        public Task Create(Sender sender)
+        public Task Create(Recipient recipient)
         {
             throw new System.NotImplementedException();
         }
 
-        public Task Delete(string senderId)
+        public Task Delete(string recipientId)
         {
             throw new System.NotImplementedException();
+        }
+
+        public IEnumerable<Recipient> GetAll(string id)
+        {
+            var sender = _context.Senders.Where(s => s.Id == id);
+            return _context.Recipients
+                .Where(r => r.Sender==sender);
         }
 
         public IEnumerable<Sender> GetAll()
         {
-            return _context.Senders
-                .Include(sender => sender.Recipients);
+            throw new System.NotImplementedException();
+        }
+
+        public Recipient GetById(int id)
+        {
+            var recipient = _context.Recipients
+                .Where(s => s.ID == id)
+                .FirstOrDefault();
+            return recipient ;
         }
 
         public Sender GetById(string id)
         {
-            var sender = _context.Senders
-                .Where(s => s.Id == id).Include(s => s.Recipients)
-                .FirstOrDefault();
-            return sender;
+            throw new System.NotImplementedException();
         }
 
         public Task UpdateAddress(string senderAddress, string newAddress)
