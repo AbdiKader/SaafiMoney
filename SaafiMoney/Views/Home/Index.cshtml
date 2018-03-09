@@ -31,6 +31,12 @@
                   asp-fallback-test-class="sr-only" asp-fallback-test-property="position" asp-fallback-test-value="absolute" />
             <link rel="stylesheet" href="~/css/site.min.css" asp-append-version="true" />
         </environment>
+        <link rel="stylesheet" href="css/demo.css">
+        <link rel="stylesheet" href="css/footer-distributed-with-address-and-phones.css">
+
+        <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css">
+
+        <link href="http://fonts.googleapis.com/css?family=Cookie" rel="stylesheet" type="text/css">
         @*@Html.Raw(JavaScriptSnippet.FullScript)*@
     </head>
 
@@ -62,7 +68,7 @@
             <div class="container">
                 <div class="row">
                     <div class="col-xl-9 mx-auto">
-                        <h1 class="mb-5">
+                        <h1 class="mb-5" style="text-decoration-color: white">
                             A CHEAP WAY TO SEND MONEY TO YOUR LOVED ONES
                         </h1>
                     </div>
@@ -83,7 +89,7 @@
                                 </div>
                             </div>
                         </form>
-                   </div>
+                    </div>
                 </div>
             </div>
         </header>
@@ -266,10 +272,66 @@
                 </div>
             </div>
         </section>
+        <footer class="footer-distributed">
+
+            <div class="footer-left">
+
+                <h3> <img src="~/images/app_icon.png" class="hidden-xs" style="width: 80px !important; margin-top: -45px  !important"  /><span></span></h3>
+                <p class="footer-links">
+                    <a href="#">Home</a>
+                    ·
+                    <a href="#">Contact</a>
+                    ·
+                    <a href="#">Pricing</a>
+                    ·
+                    <a href="#">Terms of Use</a>
+                </p>
+
+                <p class="footer-company-name">Saafi Cash &copy; 2018</p>
+            </div>
+
+            <div class="footer-center">
+
+                <div>
+                    <i class="fa fa-map-marker"></i>
+                    <p><span>2018 Somali Street</span> Minneapolis, MN, USA</p>
+                </div>
+
+                <div>
+                    <i class="fa fa-phone"></i>
+                    <p>+1 913 305-8802</p>
+                </div>
+
+                <div>
+                    <i class="fa fa-envelope"></i>
+                    <p><a href="mailto:support@company.com">support@company.com</a></p>
+                </div>
+
+            </div>
+
+            <div class="footer-right">
+
+                <p class="footer-company-about">
+                    <span>About Saafi</span>
+                    Saafi is a world class service to send money to your loved ones with ease and peace of mind! 
+                </p>
+
+                <div class="footer-icons">
+
+                    <a href="#"><i class="fa fa-facebook"></i></a>
+                    <a href="#"><i class="fa fa-twitter"></i></a>
+                    <a href="#"><i class="fa fa-linkedin"></i></a>
+                    <a href="#"><i class="fa fa-github"></i></a>
+
+                </div>
+
+            </div>
+
+        </footer>
 
 
         <!-- Footer -->
-        <footer class="footer bg-light">
+        @*<footer class="footer bg-light">
             <div class="container">
                 <div class="row">
                     <div class="col-lg-6 h-100 text-center text-lg-left my-auto">
@@ -313,7 +375,7 @@
                     </div>
                 </div>
             </div>
-        </footer>
+        </footer>*@
 
         <!-- Bootstrap core JavaScript -->
         <script src="vendor/jquery/jquery.min.js"></script>
