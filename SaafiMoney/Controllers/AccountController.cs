@@ -216,7 +216,10 @@ namespace SaafiMoney.Controllers
             ViewData["ReturnUrl"] = returnUrl;
             if (ModelState.IsValid)
             {
-                var user = new Sender { UserName = model.Email, Email = model.Email };
+                var user = new Sender { UserName = model.Email, Email = model.Email,
+                                        FirstName = model.FirstName, LastName = model.LastName,
+                                        Phone = model.Phone, Address = model.Address, City = model.City,
+                                        Zip = model.Zip};
                 var result = await _userManager.CreateAsync(user, model.Password);
                 if (result.Succeeded)
                 {

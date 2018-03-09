@@ -11,9 +11,10 @@ using System;
 namespace SaafiMoney.Data.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    partial class ApplicationDbContextModelSnapshot : ModelSnapshot
+    [Migration("20180307084456_First Migration")]
+    partial class FirstMigration
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -130,7 +131,7 @@ namespace SaafiMoney.Data.Migrations
 
             modelBuilder.Entity("SaafiMoney.Data.Models.Recipient", b =>
                 {
-                    b.Property<int>("Id")
+                    b.Property<int>("ID")
                         .ValueGeneratedOnAdd();
 
                     b.Property<string>("Country");
@@ -143,7 +144,7 @@ namespace SaafiMoney.Data.Migrations
 
                     b.Property<string>("SenderId");
 
-                    b.HasKey("Id");
+                    b.HasKey("ID");
 
                     b.HasIndex("SenderId");
 
@@ -278,7 +279,7 @@ namespace SaafiMoney.Data.Migrations
 
             modelBuilder.Entity("SaafiMoney.Data.Models.Recipient", b =>
                 {
-                    b.HasOne("SaafiMoney.Data.Models.Sender")
+                    b.HasOne("SaafiMoney.Data.Models.Sender", "Sender")
                         .WithMany("Recipients")
                         .HasForeignKey("SenderId");
                 });

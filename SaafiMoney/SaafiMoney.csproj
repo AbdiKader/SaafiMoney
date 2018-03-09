@@ -9,7 +9,7 @@
   <ItemGroup>
     <PackageReference Include="Microsoft.AspNetCore.All" Version="2.0.5" />
     <PackageReference Include="Microsoft.EntityFrameworkCore.Tools" Version="2.0.1" PrivateAssets="All" />
-    <PackageReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Design" Version="2.0.1" PrivateAssets="All" />
+    <PackageReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Design" Version="2.0.2" PrivateAssets="All" />
   </ItemGroup>
 
   <ItemGroup>
@@ -21,10 +21,6 @@
   <ItemGroup>
     <ProjectReference Include="..\SaafiMoney.Data\SaafiMoney.Data.csproj" />
     <ProjectReference Include="..\SaafiMoney.Service\SaafiMoney.Service.csproj" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <Folder Include="Models\RecipientViewModel\" />
   </ItemGroup>
 
   <ItemGroup>

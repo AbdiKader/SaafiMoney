@@ -29,19 +29,27 @@ namespace SaafiMoney.Data.Migrations
                 {
                     Id = table.Column<string>(nullable: false),
                     AccessFailedCount = table.Column<int>(nullable: false),
+                    Address = table.Column<string>(nullable: true),
+                    City = table.Column<string>(nullable: true),
                     ConcurrencyStamp = table.Column<string>(nullable: true),
                     Email = table.Column<string>(maxLength: 256, nullable: true),
                     EmailConfirmed = table.Column<bool>(nullable: false),
+                    FirstName = table.Column<string>(nullable: true),
+                    IdImageUrl = table.Column<string>(nullable: true),
+                    LastName = table.Column<string>(nullable: true),
                     LockoutEnabled = table.Column<bool>(nullable: false),
                     LockoutEnd = table.Column<DateTimeOffset>(nullable: true),
                     NormalizedEmail = table.Column<string>(maxLength: 256, nullable: true),
                     NormalizedUserName = table.Column<string>(maxLength: 256, nullable: true),
                     PasswordHash = table.Column<string>(nullable: true),
+                    Phone = table.Column<string>(nullable: true),
                     PhoneNumber = table.Column<string>(nullable: true),
                     PhoneNumberConfirmed = table.Column<bool>(nullable: false),
                     SecurityStamp = table.Column<string>(nullable: true),
+                    State = table.Column<string>(nullable: true),
                     TwoFactorEnabled = table.Column<bool>(nullable: false),
-                    UserName = table.Column<string>(maxLength: 256, nullable: true)
+                    UserName = table.Column<string>(maxLength: 256, nullable: true),
+                    Zip = table.Column<int>(nullable: false)
                 },
                 constraints: table =>
                 {
@@ -49,24 +57,17 @@ namespace SaafiMoney.Data.Migrations
                 });
 
             migrationBuilder.CreateTable(
-                name: "Senders",
+                name: "Records",
                 columns: table => new
                 {
                     ID = table.Column<int>(nullable: false)
                         .Annotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn),
-                    Address = table.Column<string>(nullable: true),
                     Amount = table.Column<decimal>(nullable: false),
-                    City = table.Column<string>(nullable: true),
-                    FirstName = table.Column<string>(nullable: true),
-                    IdImageUrl = table.Column<string>(nullable: true),
-                    LastName = table.Column<string>(nullable: true),
-                    Phone = table.Column<string>(nullable: true),
-                    State = table.Column<string>(nullable: true),
-                    Zip = table.Column<int>(nullable: false)
+                    Created = table.Column<DateTime>(nullable: false)
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_Senders", x => x.ID);
+                    table.PrimaryKey("PK_Records", x => x.ID);
                 });
 
             migrationBuilder.CreateTable(
@@ -185,16 +186,16 @@ namespace SaafiMoney.Data.Migrations
                     FirstName = table.Column<string>(nullable: true),
                     LastName = table.Column<string>(nullable: true),
                     Phone = table.Column<string>(nullable: true),
-                    SenderID = table.Column<int>(nullable: true)
+                    SenderId = table.Column<string>(nullable: true)
                 },
                 constraints: table =>
                 {
                     table.PrimaryKey("PK_Recipients", x => x.ID);
                     table.ForeignKey(
-                        name: "FK_Recipients_Senders_SenderID",
-                        column: x => x.SenderID,
-                        principalTable: "Senders",
-                        principalColumn: "ID",
+                        name: "FK_Recipients_AspNetUsers_SenderId",
+                        column: x => x.SenderId,
+                        principalTable: "AspNetUsers",
+                        principalColumn: "Id",
                         onDelete: ReferentialAction.Restrict);
                 });
 
@@ -238,9 +239,9 @@ namespace SaafiMoney.Data.Migrations
                 filter: "[NormalizedUserName] IS NOT NULL");
 
             migrationBuilder.CreateIndex(
-                name: "IX_Recipients_SenderID",
+                name: "IX_Recipients_SenderId",
                 table: "Recipients",
-                column: "SenderID");
+                column: "SenderId");
         }
 
         protected override void Down(MigrationBuilder migrationBuilder)
@@ -264,13 +265,13 @@ namespace SaafiMoney.Data.Migrations
                 name: "Recipients");
 
             migrationBuilder.DropTable(
+                name: "Records");
+
+            migrationBuilder.DropTable(
                 name: "AspNetRoles");
 
             migrationBuilder.DropTable(
                 name: "AspNetUsers");
-
-            migrationBuilder.DropTable(
-                name: "Senders");
         }
     }
 }
