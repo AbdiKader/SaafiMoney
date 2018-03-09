@@ -29,8 +29,7 @@ namespace SaafiMoney.Service
         public IEnumerable<Recipient> GetAll(string id)
         {
             var sender = _context.Senders.Where(s => s.Id == id);
-            return _context.Recipients
-                .Where(r => r.Sender==sender);
+            return _context.Recipients;
         }
 
         public IEnumerable<Sender> GetAll()
@@ -41,7 +40,7 @@ namespace SaafiMoney.Service
         public Recipient GetById(int id)
         {
             var recipient = _context.Recipients
-                .Where(s => s.ID == id)
+                .Where(s => s.Id == id)
                 .FirstOrDefault();
             return recipient ;
         }

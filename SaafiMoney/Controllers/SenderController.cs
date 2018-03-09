@@ -1,6 +1,8 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using SaafiMoney.Data;
 using SaafiMoney.Models.SenderViewModels;
+using SaafiMoney.Models.RecipientViewModel;
+
 using System.Linq;
 using SaafiMoney.Data.Models;
 using System;
@@ -39,12 +41,12 @@ namespace SaafiMoney.Controllers
 
             var recipientList = recipients.Select(recipient => new RecipientListingViewModel
             {
-                ID = recipient.ID,
+                Id = recipient.Id,
                 FirstName = recipient.FirstName,
                 LastName = recipient.LastName,
                 Country = recipient.Country,
                 Phone = recipient.Phone,
-                Sender = BuildSender(recipient)
+                //Sender = BuildSender(recipient)
 
             });
 
@@ -57,11 +59,11 @@ namespace SaafiMoney.Controllers
             return View(model);
         }
 
-        private SenderListingViewModel BuildSender(Recipient recipient)
-        {
-            var sender = recipient.Sender;
-            return BuildSender(sender);
-        }
+        //private SenderListingViewModel BuildSender(Recipient recipient)
+        //{
+        //    var sender = recipient.Sender;
+        //    return BuildSender(sender);
+        //}
 
         private SenderListingViewModel BuildSender(Sender sender)
         {

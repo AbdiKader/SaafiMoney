@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using System.Linq;
 using System.Threading.Tasks;
 using SaafiMoney.Data;
 using SaafiMoney.Data.Models;
@@ -16,7 +17,9 @@ namespace SaafiMoney.Service
 
         public Task Add(Recipient recipient)
         {
-            throw new System.NotImplementedException();
+             _context.Add(recipient);
+           return _context.SaveChangesAsync();
+            //return recipient;
         }
 
         public Task Delete(int id)
@@ -24,9 +27,15 @@ namespace SaafiMoney.Service
             throw new System.NotImplementedException();
         }
 
+        //public IEnumerable<Recipient> GetAll(int id)
+        //{
+        //    var stringId = id.ToString();
+        //    var sender = _context.Senders.Where(r => r.Id == stringId);
+        //    return _context.Recipients;
+        //}
         public IEnumerable<Recipient> GetAll()
         {
-            throw new System.NotImplementedException();
+            return _context.Recipients;
         }
 
         public Recipient GetById(int id)
