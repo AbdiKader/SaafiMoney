@@ -7,6 +7,7 @@ using System;
 using System.Collections.Generic;
 using SaafiMoney.Models.RecipientViewModel;
 using Microsoft.AspNetCore.Identity;
+using System.Threading.Tasks;
 
 namespace SaafiMoney.Controllers
 {
@@ -30,6 +31,38 @@ namespace SaafiMoney.Controllers
             var model = BuildSenderHome(sender);
 
             return View(model);
+        }
+        
+        public IActionResult Add()
+        {
+
+
+            var model = new NewRecipientViewModel();
+            
+            return View(model);
+        }
+
+        [HttpPost]
+        public async Task<IActionResult> Create(NewRecipientViewModel model)
+        {
+            var id = _userManager.GetUserId(User);
+            var sender = _userManager.FindByIdAsync(id).Result;
+
+            var recipient = BuildNewRecipient(model, sender);
+            await _senderService.Create(recipient);
+            return RedirectToAction("Index");
+        }
+
+        private Recipient BuildNewRecipient(NewRecipientViewModel model, Sender sender)
+        {
+            return new Recipient
+            {
+                FirstName = model.FirstName,
+                LastName = model.LastName,
+                Country = model.Country,
+                Phone = model.Phone,
+                Sender = sender
+            };
         }
 
         private SenderHomeIndexViewModel BuildSenderHome(Sender sender)

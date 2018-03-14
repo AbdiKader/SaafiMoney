@@ -16,9 +16,10 @@ namespace SaafiMoney.Service
             _context = context;
         }
 
-        public Task Create(Recipient recipient)
+        public async Task Create(Recipient recipient)
         {
-            throw new System.NotImplementedException();
+            _context.Add(recipient);
+            await _context.SaveChangesAsync();
         }
 
         public Task Delete(string recipientId)
