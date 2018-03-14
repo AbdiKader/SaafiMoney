@@ -1,20 +1,42 @@
-﻿@model SaafiMoney.Models.SenderViewModels.SenderIndexViewModel
+﻿@model SaafiMoney.Models.SenderViewModels.SenderHomeIndexViewModel
 @{
         Layout = "_Layout";
     }
 
-<h1>Senders</h1>
+<h1>Welcome @Model.FirstName &nbsp; @Model.LastName</h1>
 
-<table class="table table-hover">
-    <tbody>
-        @foreach (var sender in Model.SenderList)
-        {
+<div>
+    <h1>Your recent remmitances</h1>
+    @if (Model.Recipients.Any())
+    {
+    <table class="table table-hover">
+        <thead>
             <tr>
-                <td><a asp-controller="Sender" asp-action="Detail" asp-route-id="@sender.ID">@sender.FirstName &nbsp; @sender.LastName </a></td>
-
-
+                <td>First Name</td>
+                <td>Last Name</td>
+                <td>Country</td>
+                <td>Amount</td>
             </tr>
+        </thead>
+        <tbody>
+            @foreach (var ben in Model.Recipients)
+            {
+                <tr>
+                    <td>@ben.FirstName</td>
+                    <td>@ben.LastName</td>
+                    <td>@ben.Country</td>
+                    <td>$$</td>
+                </tr>
 
-        }
-    </tbody>
-</table>
+            }
+        </tbody>
+    </table>
+    }
+    else
+    {
+        <div>
+            <p>You can add a recipient to<a asp-controller="Sender" asp-action="Send">Send Money</a> </p>
+        </div>
+
+    }
+</div>

@@ -4,32 +4,67 @@ using SaafiMoney.Models.SenderViewModels;
 using System.Linq;
 using SaafiMoney.Data.Models;
 using System;
+using System.Collections.Generic;
+using SaafiMoney.Models.RecipientViewModel;
+using Microsoft.AspNetCore.Identity;
 
 namespace SaafiMoney.Controllers
 {
     public class SenderController : Controller
     {
         private readonly ISender _senderService;
-        public SenderController(ISender senderService)
+
+        private static UserManager<Sender> _userManager;
+
+
+        public SenderController(ISender senderService, UserManager<Sender> userManager)
         {
             _senderService = senderService;
+            _userManager = userManager;
         }
 
         public IActionResult Index()
         {
-            var senders = _senderService.GetAll().Select(sender => new SenderListingViewModel
+            var id = _userManager.GetUserId(User);
+            var sender = _senderService.GetById(id);
+            var model = BuildSenderHome(sender);
+
+            return View(model);
+        }
+
+        private SenderHomeIndexViewModel BuildSenderHome(Sender sender)
+        {
+            var recipients = BuildRecipients(sender.Recipients);
+
+            return new SenderHomeIndexViewModel
             {
                 ID = sender.Id,
                 FirstName = sender.FirstName,
-                LastName = sender.LastName
+                LastName = sender.LastName,
+                Address = sender.Address,
+                City = sender.City,
+                State = sender.State,
+                Zip = sender.Zip,
+                Phone = sender.Phone,
+                ImageUrl = sender.IdImageUrl,
+                Recipients = recipients
+            };
+        }
+
+        private IEnumerable<RecipientIndexViewModel> BuildRecipients(IEnumerable<Recipient> recipients)
+        {
+
+            var recipient = recipients.Select(rec => new RecipientIndexViewModel
+            {
+                ID = rec.ID,
+                FirstName = rec.FirstName,
+                LastName = rec.LastName,
+                Country = rec.Country,
+                Phone = rec.Phone,
+
             });
 
-            var model = new SenderIndexViewModel
-            {
-                SenderList = senders
-            };
-
-            return View(model);
+            return recipient;
         }
 
         public IActionResult Detail(string id)
