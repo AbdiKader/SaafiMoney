@@ -6,32 +6,55 @@
 <h1>Welcome @Model.FirstName &nbsp; @Model.LastName</h1>
 
 <div>
-    <h1>Your recent remmitances</h1>
+    @*<h1>Your recent recipients</h1>
     @if (Model.Recipients.Any())
     {
-    <table class="table table-hover">
-        <thead>
-            <tr>
-                <td>First Name</td>
-                <td>Last Name</td>
-                <td>Country</td>
-                <td>Amount</td>
-            </tr>
-        </thead>
-        <tbody>
-            @foreach (var ben in Model.Recipients)
-            {
+        <table class="table table-hover">
+            <thead>
                 <tr>
-                    <td>@ben.FirstName</td>
-                    <td>@ben.LastName</td>
-                    <td>@ben.Country</td>
-                    <td>$$</td>
+                    <td>First Name</td>
+                    <td>Last Name</td>
+                    <td>Country</td>
+                    <td>Amount</td>
                 </tr>
+            </thead>
+            <tbody>
+                @foreach (var ben in Model.Recipients)
+                {
+                    <tr>
+                        <td>@ben.FirstName</td>
+                        <td>@ben.LastName</td>
+                        <td>@ben.Country</td>
+                        <td>$$</td>
+                    </tr>
 
-            }
-        </tbody>
-    </table>
+                }
+            </tbody>
+        </table>
+    }*@
+    <h1>Your recent remmitances</h1>
+    @if (Model.Remittances.Any())
+    {
+        <table class="table table-hover">
+            <thead>
+                <tr>
+                    <td>Amount</td>
+                    <td>Created</td>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var ben in Model.Remittances)
+                {
+                    <tr>
+                        <td>@ben.Amount</td>
+                        <td>@ben.Created</td>
+                    </tr>
+
+                }
+            </tbody>
+        </table>
     }
+
     else
     {
         <div>

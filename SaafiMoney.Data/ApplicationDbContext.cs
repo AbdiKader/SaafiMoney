@@ -11,7 +11,7 @@ namespace SaafiMoney.Data
         {
         }
 
-         public DbSet<Record> Records { get; set; }
+         public DbSet<Remittance> Remittances { get; set; }
          public DbSet<Recipient> Recipients { get; set; }
          public DbSet<Sender> Senders { get; set; }
     }

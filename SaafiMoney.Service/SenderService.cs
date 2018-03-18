@@ -21,36 +21,56 @@ namespace SaafiMoney.Service
             _context.Add(recipient);
             await _context.SaveChangesAsync();
         }
-
+        public async Task Send(Remittance remittance)
+        {
+            _context.Add(remittance);
+            await _context.SaveChangesAsync();
+        }
         public Task Delete(string recipientId)
         {
             throw new System.NotImplementedException();
         }
 
-        public IEnumerable<Recipient> GetAll(string id)
+        //public IEnumerable<Recipient> GetAll(string id)
+        //{
+        //    var sender = _context.Senders.Where(s => s.Id == id);
+        //    return _context.Recipients
+        //        .Where(r => r.Sender==sender);
+        //}
+        public IEnumerable<Remittance> GetAll(string id)
         {
             var sender = _context.Senders.Where(s => s.Id == id);
-            return _context.Recipients
-                .Where(r => r.Sender==sender);
+            return _context.Remittances
+                .Where(r => r.Sender == sender);
         }
-
+        //public IEnumerable<Sender> GetAll()
+        //{
+        //    return _context.Senders.Include(s => s.Recipients);
+        //}
         public IEnumerable<Sender> GetAll()
         {
-            return _context.Senders.Include(s => s.Recipients);
+            return _context.Senders.Include(s => s.Remittances);
         }
 
-        public Recipient GetById(int id)
+        //public Recipient GetById(int id)
+        //{
+        //    var recipient = _context.Recipients
+        //        .Where(s => s.ID == id)
+        //        .FirstOrDefault();
+        //    return recipient ;
+        //}
+        public Remittance GetById(int id)
         {
-            var recipient = _context.Recipients
+            var remittance = _context.Remittances
                 .Where(s => s.ID == id)
                 .FirstOrDefault();
-            return recipient ;
+            return remittance;
         }
 
         public Sender GetById(string id)
         {
             return _context.Senders.Where(s => s.Id == id)
-                .Include(r => r.Recipients)
+                .Include(r => r.Remittances)
                 .FirstOrDefault();
         }
 

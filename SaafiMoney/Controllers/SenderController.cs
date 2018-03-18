@@ -8,6 +8,7 @@ using System.Collections.Generic;
 using SaafiMoney.Models.RecipientViewModel;
 using Microsoft.AspNetCore.Identity;
 using System.Threading.Tasks;
+using SaafiMoney.Models.RemittanceViewModel;
 
 namespace SaafiMoney.Controllers
 {
@@ -65,9 +66,39 @@ namespace SaafiMoney.Controllers
             };
         }
 
+        public IActionResult Send()
+        {
+
+
+            var model = new NewRemittanceViewModel();
+
+            return View(model);
+        }
+
+        [HttpPost]
+        public async Task<IActionResult> Send(NewRemittanceViewModel model)
+        {
+            var id = _userManager.GetUserId(User);
+            var sender = _userManager.FindByIdAsync(id).Result;
+
+            var remittance = BuildNewRemittance(model, sender);
+            await _senderService.Send(remittance);
+            return RedirectToAction("Index");
+        }
+
+        private Remittance BuildNewRemittance(NewRemittanceViewModel model, Sender sender)
+        {
+            return new Remittance
+            {
+                Amount = model.Amount,
+                Created = model.Created,
+                Sender = sender
+            };
+        }
         private SenderHomeIndexViewModel BuildSenderHome(Sender sender)
         {
-            var recipients = BuildRecipients(sender.Recipients);
+            //var recipients = BuildRecipients(sender.Recipients);
+            var remittances = BuildRemittances(sender.Remittances);
 
             return new SenderHomeIndexViewModel
             {
@@ -80,7 +111,8 @@ namespace SaafiMoney.Controllers
                 Zip = sender.Zip,
                 Phone = sender.Phone,
                 ImageUrl = sender.IdImageUrl,
-                Recipients = recipients
+                //Recipients = recipients,
+                Remittances = remittances
             };
         }
 
@@ -100,34 +132,52 @@ namespace SaafiMoney.Controllers
             return recipient;
         }
 
-        public IActionResult Detail(string id)
+        private IEnumerable<RemittanceIndexViewModel> BuildRemittances(IEnumerable<Remittance> remittances)
         {
-            var sender = _senderService.GetById(id);
-            var recipients = sender.Recipients;
 
-            var recipientList = recipients.Select(recipient => new RecipientListingViewModel
+            var remittance = remittances.Select(rem => new RemittanceIndexViewModel
             {
-                ID = recipient.ID,
-                FirstName = recipient.FirstName,
-                LastName = recipient.LastName,
-                Country = recipient.Country,
-                Phone = recipient.Phone,
-                Sender = BuildSender(recipient)
-
+                ID = rem.ID,
+                Amount = rem.Amount,
+                Created = rem.Created,
             });
 
-            var model = new SenderDetailViewModel
-            {
-                Recipients = recipientList,
-                Sender = BuildSender(sender)
-            };
-           
-            return View(model);
+            return remittance;
         }
 
-        private SenderListingViewModel BuildSender(Recipient recipient)
+        //public IActionResult Detail(string id)
+        //{
+        //    var sender = _senderService.GetById(id);
+        //    var recipients = sender.Recipients;
+
+        //    var recipientList = recipients.Select(recipient => new RecipientListingViewModel
+        //    {
+        //        ID = recipient.ID,
+        //        FirstName = recipient.FirstName,
+        //        LastName = recipient.LastName,
+        //        Country = recipient.Country,
+        //        Phone = recipient.Phone,
+        //        Sender = BuildSender(recipient)
+
+        //    });
+
+        //    var model = new SenderDetailViewModel
+        //    {
+        //        Recipients = recipientList,
+        //        Sender = BuildSender(sender)
+        //    };
+           
+        //    return View(model);
+        //}
+
+        //private SenderListingViewModel BuildSender(Recipient recipient)
+        //{
+        //    var sender = recipient.Sender;
+        //    return BuildSender(sender);
+        //}
+        private SenderListingViewModel BuildSender(Remittance remittance)
         {
-            var sender = recipient.Sender;
+            var sender = remittance.Sender;
             return BuildSender(sender);
         }
 
@@ -143,8 +193,6 @@ namespace SaafiMoney.Controllers
                 Zip = sender.Zip,
                 State = sender.State,
                 Phone = sender.Phone
-
-
             };
         }
     }

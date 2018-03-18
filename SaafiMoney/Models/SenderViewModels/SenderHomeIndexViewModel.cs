@@ -1,4 +1,5 @@
 ﻿using SaafiMoney.Models.RecipientViewModel;
+using SaafiMoney.Models.RemittanceViewModel;
 using System.Collections.Generic;
 
 namespace SaafiMoney.Models.SenderViewModels
@@ -16,5 +17,7 @@ namespace SaafiMoney.Models.SenderViewModels
         public string ImageUrl { get; set; }
 
         public IEnumerable<RecipientIndexViewModel> Recipients { get; set; }
+        public IEnumerable<RemittanceIndexViewModel> Remittances { get; set; }
+
     }
 }
