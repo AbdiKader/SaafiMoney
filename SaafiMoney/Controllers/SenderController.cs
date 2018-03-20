@@ -33,7 +33,15 @@ namespace SaafiMoney.Controllers
 
             return View(model);
         }
-        
+
+        public IActionResult Transactions()
+        {
+            var id = _userManager.GetUserId(User);
+            var sender = _senderService.GetRemittanceById(id);
+            var model = BuildSenderTransactions(sender);
+
+            return View(model);
+        }
         public IActionResult Add()
         {
 
@@ -83,7 +91,7 @@ namespace SaafiMoney.Controllers
 
             var remittance = BuildNewRemittance(model, sender);
             await _senderService.Send(remittance);
-            return RedirectToAction("Index");
+            return RedirectToAction("Transactions");
         }
 
         private Remittance BuildNewRemittance(NewRemittanceViewModel model, Sender sender)
@@ -97,8 +105,8 @@ namespace SaafiMoney.Controllers
         }
         private SenderHomeIndexViewModel BuildSenderHome(Sender sender)
         {
-            //var recipients = BuildRecipients(sender.Recipients);
-            var remittances = BuildRemittances(sender.Remittances);
+            var recipients = BuildRecipients(sender.Recipients);
+            //var remittances = BuildRemittances(sender.Remittances);
 
             return new SenderHomeIndexViewModel
             {
@@ -111,11 +119,29 @@ namespace SaafiMoney.Controllers
                 Zip = sender.Zip,
                 Phone = sender.Phone,
                 ImageUrl = sender.IdImageUrl,
-                //Recipients = recipients,
-                Remittances = remittances
+                Recipients = recipients,
+               // Remittances = remittances
             };
         }
 
+        private SenderTransactionsIndexViewModel BuildSenderTransactions(Sender sender)
+        {
+           var remittances = BuildRemittances(sender.Remittances);
+
+            return new SenderTransactionsIndexViewModel
+            {
+                ID = sender.Id,
+                FirstName = sender.FirstName,
+                LastName = sender.LastName,
+                Address = sender.Address,
+                City = sender.City,
+                State = sender.State,
+                Zip = sender.Zip,
+                Phone = sender.Phone,
+                ImageUrl = sender.IdImageUrl,
+                Remittances = remittances
+            };
+        }
         private IEnumerable<RecipientIndexViewModel> BuildRecipients(IEnumerable<Recipient> recipients)
         {
 
@@ -166,15 +192,15 @@ namespace SaafiMoney.Controllers
         //        Recipients = recipientList,
         //        Sender = BuildSender(sender)
         //    };
-           
+
         //    return View(model);
         //}
 
-        //private SenderListingViewModel BuildSender(Recipient recipient)
-        //{
-        //    var sender = recipient.Sender;
-        //    return BuildSender(sender);
-        //}
+        private SenderListingViewModel BuildSender(Recipient recipient)
+        {
+            var sender = recipient.Sender;
+            return BuildSender(sender);
+        }
         private SenderListingViewModel BuildSender(Remittance remittance)
         {
             var sender = remittance.Sender;

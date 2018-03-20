@@ -7,10 +7,12 @@ namespace SaafiMoney.Data
     public interface ISender
     {
         Sender GetById(string id);
-        Remittance GetById(int id);
-        //Recipient GetById(int id);
-        //IEnumerable<Recipient> GetAll(string id);
-        IEnumerable<Remittance> GetAll(string id);
+        Sender GetRemittanceById(string id);
+
+        Remittance GetRemittanceById(int id);
+        Recipient GetById(int id);
+        IEnumerable<Recipient> GetAll(string id);
+        IEnumerable<Remittance> GetAllRemittances(string id);
         IEnumerable<Sender> GetAll();
        
 

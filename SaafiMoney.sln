@@ -1,13 +1,13 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
-VisualStudioVersion = 15.0.27004.2009
+VisualStudioVersion = 15.0.27130.2027
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SaafiMoney", "SaafiMoney\SaafiMoney.csproj", "{603827C0-5EE8-4380-A3A6-DB9B81CD02A7}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SaafiMoney.Data", "SaafiMoney.Data\SaafiMoney.Data.csproj", "{F486C1DA-27F2-4CCA-8F7D-80E82C7F8D13}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SaafiMoney.Service", "SaafiMoney.Service\SaafiMoney.Service.csproj", "{B446E394-4C75-4DAA-BAE0-8EBC146C5829}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SaafiMoney.Service", "SaafiMoney.Service\SaafiMoney.Service.csproj", "{B446E394-4C75-4DAA-BAE0-8EBC146C5829}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
