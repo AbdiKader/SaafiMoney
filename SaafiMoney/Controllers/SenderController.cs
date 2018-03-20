@@ -100,6 +100,7 @@ namespace SaafiMoney.Controllers
             {
                 Amount = model.Amount,
                 Created = model.Created,
+                RecipientId = model.RecipientId,
                 Sender = sender
             };
         }

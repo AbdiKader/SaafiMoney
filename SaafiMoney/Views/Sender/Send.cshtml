@@ -6,6 +6,27 @@
         <input asp-for="Amount" class="form-control" />
         <span asp-validation-for="Amount" class="text-danger"></span>
     </div>
-   
-    <button type="submit">Send</button>
+    <div class="form-group" style="text-align:center">
+        <label asp-for="RecipientId"></label>
+        <div class="col-md-10">
+            <select asp-for="RecipientId" class="form-control" asp-items="Model.Recipients">
+                <option value="">-- Select Category --</option>
+            </select>
+            <span asp-validation-for="RecipientId" class="text-danger" />
+        </div>
+    </div>
+    
+        <button type="submit">Send</button>
 </form>
+@*<tbody>
+    @foreach (var ben in Model.RecipientsList)
+    {
+    <tr>
+        <td>@ben.FirstName</td>
+        <td>@ben.LastName</td>
+        <td>@ben.Country</td>
+        <td>@ben.Phone</td>
+    </tr>
+
+    }
+</tbody>*@

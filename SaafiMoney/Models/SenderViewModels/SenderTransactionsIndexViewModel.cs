@@ -15,6 +15,7 @@ namespace SaafiMoney.Models.SenderViewModels
         public int Zip { get; set; }
         public string Phone { get; set; }
         public string ImageUrl { get; set; }
+
         public IEnumerable<RecipientIndexViewModel> Recipients { get; set; }
 
         public IEnumerable<RemittanceIndexViewModel> Remittances { get; set; }
