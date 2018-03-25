@@ -16,7 +16,7 @@ namespace SaafiMoney.Data
         IEnumerable<Sender> GetAll();
        
 
-        Task Create(Recipient recipient);
+        Task Add(Recipient recipient);
         Task Send(Remittance remittance);
 
         Task Delete(string recipientId);

@@ -14,3 +14,4 @@ C:\Users\habdi\Documents\GitHub\SaafiMoney\SaafiMoney.Data\obj\Debug\netcoreapp2
 C:\Users\habdi\Documents\GitHub\SaafiMoney\SaafiMoney.Data\obj\Debug\netcoreapp2.0\SaafiMoney.Data.AssemblyInfo.cs
 C:\Users\habdi\Documents\GitHub\SaafiMoney\SaafiMoney.Data\obj\Debug\netcoreapp2.0\SaafiMoney.Data.dll
 C:\Users\habdi\Documents\GitHub\SaafiMoney\SaafiMoney.Data\obj\Debug\netcoreapp2.0\SaafiMoney.Data.pdb
+C:\Users\habdi\Documents\GitHub\SaafiMoney\SaafiMoney.Data\obj\Debug\netcoreapp2.0\SaafiMoney.Data.csprojResolveAssemblyReference.cache
