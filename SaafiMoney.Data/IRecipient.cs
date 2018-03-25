@@ -7,8 +7,8 @@ namespace SaafiMoney.Data
     public interface IRecipient
     {
         Recipient GetById(int id);
+        //IEnumerable<Recipient> GetAll(int id);
         IEnumerable<Recipient> GetAll();
-
         Task Add(Recipient recipient);
         Task Delete(int id);
         Task UpdateFirstName(int id, string newFirstName);
