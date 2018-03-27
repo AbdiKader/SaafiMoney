@@ -31,7 +31,7 @@ namespace SaafiMoney.Controllers
             var sender = _senderService.GetById(id);
             var model = BuildSenderHome(sender);
 
-            return View(model);
+            return RedirectToAction("Transactions");
         }
         public IActionResult Recipients()
         {
