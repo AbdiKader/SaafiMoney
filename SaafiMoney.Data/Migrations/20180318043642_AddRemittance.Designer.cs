@@ -11,9 +11,10 @@ using System;
 namespace SaafiMoney.Data.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    partial class ApplicationDbContextModelSnapshot : ModelSnapshot
+    [Migration("20180318043642_AddRemittance")]
+    partial class AddRemittance
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -141,13 +142,9 @@ namespace SaafiMoney.Data.Migrations
 
                     b.Property<string>("Phone");
 
-                    b.Property<int?>("RemittanceID");
-
                     b.Property<string>("SenderId");
 
                     b.HasKey("ID");
-
-                    b.HasIndex("RemittanceID");
 
                     b.HasIndex("SenderId");
 
@@ -156,18 +153,16 @@ namespace SaafiMoney.Data.Migrations
 
             modelBuilder.Entity("SaafiMoney.Data.Models.Remittance", b =>
                 {
-                    b.Property<int>("ID")
+                    b.Property<int>("Id")
                         .ValueGeneratedOnAdd();
 
                     b.Property<decimal>("Amount");
 
                     b.Property<DateTime>("Created");
 
-                    b.Property<int>("RecipientId");
-
                     b.Property<string>("SenderId");
 
-                    b.HasKey("ID");
+                    b.HasKey("Id");
 
                     b.HasIndex("SenderId");
 
@@ -288,10 +283,6 @@ namespace SaafiMoney.Data.Migrations
 
             modelBuilder.Entity("SaafiMoney.Data.Models.Recipient", b =>
                 {
-                    b.HasOne("SaafiMoney.Data.Models.Remittance")
-                        .WithMany("Recipients")
-                        .HasForeignKey("RemittanceID");
-
                     b.HasOne("SaafiMoney.Data.Models.Sender", "Sender")
                         .WithMany("Recipients")
                         .HasForeignKey("SenderId");

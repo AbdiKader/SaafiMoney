@@ -15,6 +15,8 @@ namespace SaafiMoney.Data.Models
             public int Zip { get; set; } 
             public string IdImageUrl { get; set; }
 
-            public virtual IEnumerable<Recipient> Recipients { get; set; }
-        }
-    } 
+           public virtual IEnumerable<Recipient> Recipients { get; set; }
+           public virtual IEnumerable<Remittance> Remittances { get; set; }
+
+    }
+} 
