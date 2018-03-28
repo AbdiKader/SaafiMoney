@@ -31,9 +31,16 @@ namespace SaafiMoney.Controllers
             var sender = _senderService.GetById(id);
             var model = BuildSenderHome(sender);
 
+            return RedirectToAction("Transactions");
+        }
+        public IActionResult Recipients()
+        {
+            var id = _userManager.GetUserId(User);
+            var sender = _senderService.GetById(id);
+            var model = BuildSenderHome(sender);
+
             return View(model);
         }
-
         public IActionResult Transactions()
         {
             var id = _userManager.GetUserId(User);
@@ -52,13 +59,13 @@ namespace SaafiMoney.Controllers
         }
 
         [HttpPost]
-        public async Task<IActionResult> Create(NewRecipientViewModel model)
+        public async Task<IActionResult> Add(NewRecipientViewModel model)
         {
             var id = _userManager.GetUserId(User);
             var sender = _userManager.FindByIdAsync(id).Result;
 
             var recipient = BuildNewRecipient(model, sender);
-            await _senderService.Create(recipient);
+            await _senderService.Add(recipient);
             return RedirectToAction("Index");
         }
 

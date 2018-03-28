@@ -1,4 +1,5 @@
-﻿namespace SaafiMoney.Models.SenderViewModels
+﻿
+namespace SaafiMoney.Models.SenderViewModels
 {
     public class RecipientListingViewModel
     {

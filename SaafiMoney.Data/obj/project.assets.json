@@ -12541,9 +12541,6 @@
   },
   "project": {
     "version": "1.0.0",
-    "restoreSettings": {
-      "hideWarningsAndErrors": true
-    },
     "restore": {
       "projectUniqueName": "C:\\Users\\abdik\\Desktop\\SaafiMoney\\SaafiMoney.Data\\SaafiMoney.Data.csproj",
       "projectName": "SaafiMoney.Data",

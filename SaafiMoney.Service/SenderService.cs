@@ -16,7 +16,7 @@ namespace SaafiMoney.Service
             _context = context;
         }
 
-        public async Task Create(Recipient recipient)
+        public async Task Add(Recipient recipient)
         {
             _context.Add(recipient);
             await _context.SaveChangesAsync();

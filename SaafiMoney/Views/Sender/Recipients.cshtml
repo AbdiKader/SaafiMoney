@@ -1,4 +1,5 @@
-﻿@model SaafiMoney.Models.RemittanceViewModel.NewRemittanceViewModel
+﻿@model SaafiMoney.Models.SenderViewModels.SenderHomeIndexViewModel
+
 
 <!DOCTYPE html>
 <html lang="en">
@@ -44,6 +45,21 @@
 </head>
 
 
+
+@*<div style="width: 75%; margin-left: auto; margin-right: auto; color:white; background-color:black" class="navbar navbar-light topnav" id="myTopnav">
+        <a href="#home" class="active">
+            <img src="~/images/app_icon.png" style="width: 80px !important; margin-top: -45px !important" />
+            <p href="#" style="margin-left:15px"> Saafi</p>
+        </a>
+        <a href="#">How It Works</a>
+        <a href="#">Contact Us</a>
+        <a href="#">Our Story</a>
+        <a href="#">Help</a>
+        <a href="#" style="margin-right: 45px;"class="pull-right">@await Html.PartialAsync("_LoginPartial")</a>
+        <ul style="margin-right:45px;"class="navbar-right d-inline-block"><li>@await Html.PartialAsync("_LoginPartial")</li></ul>
+
+        <a href="javascript:void(0);" class="icon" onclick="myFunction()">&#9776;</a>
+    </div>*@
 <body style="padding-top: 0px;">
     <div class="navbar">
 
@@ -65,55 +81,66 @@
         </div>
     </div>
 
+
     <!-- Masthead -->
-    <div style="width: 70%; margin-left: auto; margin-right: auto;" class="page-header" style="background:white">
+    <div style="width: 70%; margin-left: auto; margin-right: auto; background-color:white" class="page-header">
         <h1 style=" font-size: 21px;color: #0b131d; font-weight: 400;font-size: 21px;margin-top: 20px;margin-bottom: 10px;font-family: inherit;font-weight: 400;line-height: 1.1;color: inherit;margin: .67em 0; font-size: 2em; box-sizing: border-box;display: block;font-size: 2em; font-weight: bold;">
-            Send Money
-            <a asp-controller="Sender" asp-action="Add" class="hidden-xs btn btn-primary pull-right">+ Add Recipient</a> <a asp-controller="Sender" asp-action="Add" class="visible-xs-block mobile-add btn-block btn btn-success">+ Add Recipient</a>
-            <a asp-controller="Sender" asp-action="Transactions" class="hidden-xs btn btn-success pull-right">Transactions </a> <a asp-controller="Sender" asp-action="Transactions" class="visible-xs-block mobile-add btn-block btn btn-primary">Transactions</a>
+            Recipients
+            <form asp-controller="Reports" asp-action="Index" class="navbar-form navbar-left" role="search" method="get">
+                <div class="form-group">
+                    <p>
+                        <input type="text" name="searchString" class="form-control" placeholder="Search your recipients" value="@ViewData["CurrentFilter"]" />
+                        <input type="submit" value="Search" class="btn btn-group-xs " />
+                    </p>
+                </div>
+            </form>
+            <a asp-controller="Sender" asp-action="Add" class="hidden-xs btn btn-primary pull-right">+ Add Recipient</a> <a asp-controller="Sender" asp-action="Add" class="visible-xs-block mobile-add btn-block btn btn-success">+ New Remittance</a>
+            <a asp-controller="Sender" asp-action="Send" class="hidden-xs btn btn-success pull-right">+ New Remittance </a> <a asp-controller="Sender" asp-action="Send" class="visible-xs-block mobile-add btn-block btn btn-primary">+ Add Recipient</a>
         </h1>
     </div>
+    @*<h1>Welcome @Model.FirstName &nbsp; @Model.LastName</h1>*@
+    <form asp-controller="Sender" asp-action="Remove" method="post">
+        @if (Model.Recipients.Any())
+                {
+        <table style="width: 70%; margin-left: auto; margin-right: auto;" class="table table-striped">
+            <tr>
+                <th>First Name</th>
+                <th>Last Name</th>
+                <th>Country</th>
+                <th class="pull-right">Action</th>
+                <th></th>
+            </tr>
+
+            @foreach (var ben in Model.Recipients)
+                        {
+
+            <tr>
+                <td><a asp-controller="Sender" asp-action="" asp-route-id="@ben.FirstName">@ben.FirstName</a></td>
+                <td><a asp-controller="Sender" asp-action="" asp-route-id="@ben.LastName">@ben.LastName</a></td>
+                <td><a asp-controller="Sender" asp-action="" asp-route-id="@ben.Country">@ben.Country</a></td>
+
+                <td>
+                    <a @*href="/sender/edit/@recipient.ID" *@ class="btn btn-info btn-xs">Edit</a>
+                </td>
+                <td>
+                    <a @*href="/sender/remove/@ben.Sender.Id" *@ class="btn btn-danger btn-xs">Delete</a>
+                </td>
+
+            </tr>
+
+                        }
 
 
-    <form style="width: 70%; margin-left: auto; margin-right: auto;" asp-controller="Sender" asp-action="Add" method="post">
-        <div class="form-group">
-            <label>Recipient Name</label>
-            <select asp-for="RecipientId" class="form-control" style="width:30%;"asp-items="Model.Recipients">
-                <option value="">-- Select Category --</option>
-            </select>
-            <span asp-validation-for="RecipientId" class="text-danger" />
+        </table>
+                }
+                else
+                {
+        <div>
+            <p>You can add a recipient to<a asp-controller="Sender" asp-action="Add" asp-route-id="@Model.ID">Send Money</a> </p>
         </div>
-        <div class="form-group">
-            <label>Date</label>
-            <input asp-for="Created" style="width:30%;" class="form-control hidden-xs" />
-            <input asp-for="Created" class="form-control visible-xs-block mobile-add" />
 
-            <span asp-validation-for="Created" class="text-danger"></span>
-        </div>
-        <div class="form-group">
-            <label>City</label>
-            <input asp-for="Recipient" style="width:30%;" class="form-control hidden-xs" />
-            <input asp-for="Recipient" class="form-control visible-xs-block mobile-add" />
-            <span asp-validation-for="Recipient" class="text-danger"></span>
-        </div>
-        <div class="form-group">
-            <label>Country</label>
-            <input asp-for="Recipient.Country" style="width:30%;" class="form-control hidden-xs" />
-            <input asp-for="Recipient.Country" class="form-control visible-xs-block mobile-add" />
-            <span asp-validation-for="Recipient.Country" class="text-danger"></span>
-        </div>
-        <input type="submit" value="Send" class="hidden-xs btn btn-success" />
-        <input type="submit" value="Send" class="visible-xs-block mobile-add btn btn-success" />
-
-        
+                }
     </form>
-    </div>
-    </br>
-    </br>
-    <div>
-
-
-    </div>
     <div style="width: 70%; margin-left: auto; margin-right: auto;" class="table table-striped">
         <a asp-controller="Sender" asp-action="Add" class="hidden-xs btn btn-success btn-sm">+ Add Recipient</a>
         <a asp-controller="Sender" asp-action="Send" class="hidden-xs btn btn-info btn-sm pull-right">+ New Remittance</a>

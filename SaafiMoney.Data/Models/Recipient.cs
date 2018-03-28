@@ -1,4 +1,7 @@
-﻿namespace SaafiMoney.Data.Models
+﻿using System;
+using System.Collections.Generic;
+
+namespace SaafiMoney.Data.Models
 {
     public class Recipient
     {
@@ -8,7 +11,7 @@
         public string Phone { get; set; }
         public string Country { get; set; }
 
-
-        public virtual Sender Sender { get; set; }
+        public Sender Sender { get; set; }
+        
     }
 }
