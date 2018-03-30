@@ -66,7 +66,7 @@ namespace SaafiMoney.Controllers
 
             var recipient = BuildNewRecipient(model, sender);
             await _senderService.Add(recipient);
-            return RedirectToAction("Index");
+            return RedirectToAction("Send");
         }
 
         private Recipient BuildNewRecipient(NewRecipientViewModel model, Sender sender)
