@@ -94,7 +94,7 @@
     </div>
 
 
-    <form style="width: 70%; margin-left: auto; margin-right: auto;" asp-controller="Sender" asp-action="Add" method="post">
+    <form style="width: 70%; margin-left: auto; margin-right: auto;" asp-controller="Sender" asp-action="send" method="post">
         <div class="form-group">
             <label>Recipient Name</label>
             <select asp-for="RecipientId" class="form-control" style="width:30%;" asp-items="Model.Recipients">
@@ -120,6 +120,12 @@
             <input asp-for="Recipient.Country" style="width:30%;" class="form-control hidden-xs" />
             <input asp-for="Recipient.Country" class="form-control visible-xs-block mobile-add" />
             <span asp-validation-for="Recipient.Country" class="text-danger"></span>
+        </div>
+        <div class="form-group">
+            <label>Amount</label>
+            <input asp-for="Amount" style="width:30%;" class="form-control hidden-xs" />
+            <input asp-for="Amount" class="form-control visible-xs-block mobile-add" />
+            <span asp-validation-for="Amount" class="text-danger"></span>
         </div>
         <input type="submit" value="Send" class="hidden-xs btn btn-success" />
         <input type="submit" value="Send" class="visible-xs-block mobile-add btn btn-success" />

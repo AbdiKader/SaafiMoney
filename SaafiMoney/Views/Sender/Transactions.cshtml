@@ -85,19 +85,21 @@
     <table style="width: 70%; margin-left: auto; margin-right: auto;" class="table table-striped">
         <thead>
             <tr>
-                <th>Amount</th>
                 <th>Created</th>
                 <th>Recipient</th>
+                <th>Amount</th>
+
             </tr>
         </thead>
         <tbody>
             @foreach (var ben in Model.Remittances)
             {
-                <tr>
-                    <td>@ben.Amount</td>
-                    <td>@ben.Created</td>
-                    <td>Abdi Shaxaad</td>
-                </tr>
+            <tr>
+                <td>@ben.Created</td>
+                <td>Abdi Shaxaad</td>
+                <td>@ben.Amount</td>
+
+            </tr>
 
             }
         </tbody>
