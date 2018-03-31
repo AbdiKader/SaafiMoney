@@ -46,20 +46,6 @@
 
 
 
-@*<div style="width: 75%; margin-left: auto; margin-right: auto; color:white; background-color:black" class="navbar navbar-light topnav" id="myTopnav">
-        <a href="#home" class="active">
-            <img src="~/images/app_icon.png" style="width: 80px !important; margin-top: -45px !important" />
-            <p href="#" style="margin-left:15px"> Saafi</p>
-        </a>
-        <a href="#">How It Works</a>
-        <a href="#">Contact Us</a>
-        <a href="#">Our Story</a>
-        <a href="#">Help</a>
-        <a href="#" style="margin-right: 45px;"class="pull-right">@await Html.PartialAsync("_LoginPartial")</a>
-        <ul style="margin-right:45px;"class="navbar-right d-inline-block"><li>@await Html.PartialAsync("_LoginPartial")</li></ul>
-
-        <a href="javascript:void(0);" class="icon" onclick="myFunction()">&#9776;</a>
-    </div>*@
 <body style="padding-top: 0px;">
     <div class="navbar">
 
@@ -81,31 +67,35 @@
         </div>
     </div>
 
+    <div style="width: 70%; margin-left: auto; margin-right: auto;" class="progress">
+        <div class="progress-bar progress-bar-success" role="progressbar" style="width:33%">
+            Add Recipient
+        </div>
+        <div class="progress-bar progress-bar-success" role="progressbar" style="width:33%">
+            Choose Amount
+        </div>
+        <div class="progress-bar progress-bar-warning" role="progressbar" style="width:34%">
+            Choose Amount
+        </div>
+        @*<div class="progress-bar progress-bar-warning" role="progressbar" style="width:10%">
+            Warning
+        </div>
+        <div class="progress-bar progress-bar-danger" role="progressbar" style="width:20%">
+            Danger
+        </div>*@
+    </div>
 
     <!-- Masthead -->
     <div style="width: 70%; margin-left: auto; margin-right: auto; background-color:white" class="page-header">
         <h1 style=" font-size: 21px;color: #0b131d; font-weight: 400;font-size: 21px;margin-top: 20px;margin-bottom: 10px;font-family: inherit;font-weight: 400;line-height: 1.1;color: inherit;margin: .67em 0; font-size: 2em; box-sizing: border-box;display: block;font-size: 2em; font-weight: bold;">
-            Recipients
-            <form asp-controller="Reports" asp-action="Index" class="navbar-form navbar-left" role="search" method="get">
-                <div class="form-group">
-                    <p>
-                        <input type="text" name="searchString" class="form-control" placeholder="Search your recipients" value="@ViewData["CurrentFilter"]" />
-                        <input type="submit" value="Search" class="btn btn-group-xs " />
-                    </p>
-                </div>
-            </form>
+            
             <a asp-controller="Sender" asp-action="Add" class="hidden-xs btn btn-primary pull-right">+ Add Recipient</a> <a asp-controller="Sender" asp-action="Add" class="visible-xs-block mobile-add btn-block btn btn-success">+ New Remittance</a>
             <a asp-controller="Sender" asp-action="Send" class="hidden-xs btn btn-success pull-right">+ New Remittance </a> <a asp-controller="Sender" asp-action="Send" class="visible-xs-block mobile-add btn-block btn btn-primary">+ Add Recipient</a>
         </h1>
     </div>
     @*<h1>Welcome @Model.FirstName &nbsp; @Model.LastName</h1>*@
 
-    <div style="width: 70%; margin-left: auto; margin-right: auto;" class="table table-striped">
-        <a asp-controller="Sender" asp-action="Add" class="hidden-xs btn btn-success btn-sm">+ Add Recipient</a>
-        <a asp-controller="Sender" asp-action="Send" class="hidden-xs btn btn-info btn-sm pull-right">+ New Remittance</a>
-    </div>
 
-    
     <div>
         <style scoped>
             @@media(min-width: 768px) {
@@ -116,8 +106,8 @@
         </style>
     </div>
     <div class="on-the-fly-class-example" style="width:70px;  margin-right: auto; display: flex;  -ms-flex-pack: center; -webkit-box-pack: center; justify-content: center; -ms-flex-align: center; -webkit-box-align: center;align-items: center;  height: 60vh; width: 100vw;    padding-top: 200px;    z-index: 100;    overflow-y: auto; display: flex; max-width: 675px; min-height: 400px; margin-bottom: 125px; background-color: #ffffff;   border-radius: 5px; box-shadow: 3px 3px 20px rgba(0, 0, 0, 0.1); font-family: 'Open Sans', sans-serif; color: #1a1a1a; line-height: 1.15; -webkit-box-flex: 3; flex: 3; padding: 40px 30px; display: block; font-family: 'Open Sans', sans-serif; color: #1a1a1a; line-height: 1.15;">
-        
-    <h2 style="margin: 0; font-weight: 600; display: block; font-size: 1.5em; -webkit-margin-before: 0.83em;-webkit-margin-after: 0.83em;-webkit-margin-start: 0px; -webkit-margin-end: 0px;  ">Your payment details</h2>
+
+        <h2 style="margin: 0; font-weight: 600; display: block; font-size: 1.5em; -webkit-margin-before: 0.83em;-webkit-margin-after: 0.83em;-webkit-margin-start: 0px; -webkit-margin-end: 0px;  ">Your payment details</h2>
         <form style="display: block;margin-top: 0em;">
             <ul style=" list-style-type:none; display: block;list-style-type: disc;-webkit-margin-before: 1em;-webkit-margin-after: 1em;-webkit-margin-start: 0px;-webkit-margin-end: 0px; -webkit-padding-start: 40px;" class="form-list">
                 <li style="list-style-type:none;">
