@@ -117,48 +117,50 @@
                 <div class="modal__circle"></div>
                <img src="https://cloud.githubusercontent.com/assets/3484527/19622568/9c972d44-987a-11e6-9dcc-93d496ef408f.png" class="modal__product" />
             </div>*@
-            <div  style="width: 70%; margin-left: auto; margin-right: auto;"  class="modal__content">
-                <h2>Your payment details</h2>
-                <form>
-                    <ul class="form-list">
-                        <li class="form-list__row">
-                            <label>Name</label>
-                            <input type="text" name="" required="" />
+            <div  style="width: 70%; margin-left: auto; margin-right: auto; display: flex;  -ms-flex-pack: center; -webkit-box-pack: center; justify-content: center; -ms-flex-align: center; -webkit-box-align: center;align-items: center;  height: 100vh; width: 100vw;    padding-top: 200px;    z-index: 100;    overflow-y: auto; display: flex; max-width: 675px; min-height: 400px; margin-bottom: 125px; background-color: #ffffff;   border-radius: 5px; box-shadow: 3px 3px 20px rgba(0, 0, 0, 0.1); font-family: 'Open Sans', sans-serif; color: #1a1a1a; line-height: 1.15; -webkit-box-flex: 3; flex: 3; padding: 40px 30px; display: block; font-family: 'Open Sans', sans-serif; color: #1a1a1a; line-height: 1.15;"  >
+                <h2 style="margin: 0; font-weight: 600; display: block; font-size: 1.5em; -webkit-margin-before: 0.83em;-webkit-margin-after: 0.83em;-webkit-margin-start: 0px; -webkit-margin-end: 0px;  ">Your payment details</h2>
+                <form style="display: block;margin-top: 0em;">
+                    <ul style="display: block;list-style-type: disc;-webkit-margin-before: 1em;-webkit-margin-after: 1em;-webkit-margin-start: 0px;-webkit-margin-end: 0px; -webkit-padding-start: 40px;" class="form-list">
+                        <li style="display: list-item;text-align: -webkit-match-parent;" class="form-list__row">
+                            <label style="position: relative; display: block; text-transform: uppercase; font-weight: 600; font-size: 11px; letter-spacing: .5px;color: #939393; cursor: default; text-align: -webkit-match-parent;">Name</label>
+                            <input style="width: calc(100% - 10px); min-height: 30px; padding-left: 5px; padding-right: 5px;letter-spacing: .5px; border: 0; border-bottom: 2px solid #f0f0f0;     font-family: sans-serif; font-size: 100%;line-height: 1.15; margin: 0; overflow: visible; padding: 1px 0px; -webkit-appearance: textfield; background-color: white;-webkit-rtl-ordering: logical; cursor: text; text-rendering: auto; color: initial; word-spacing: normal; text-transform: none; text-indent: 0px;  text-shadow: none; display: inline-block;   text-align: start; font: 400 13.3333px Arial; -webkit-writing-mode: horizontal-tb !important;" type="text" name="" required="" />
                         </li>
-                        <li class="form-list__row">
-                            <label>Card Number</label>
+                        <li style="display: list-item;text-align: -webkit-match-parent;" class="form-list__row">
+                            <label style="position: relative; display: block; text-transform: uppercase; font-weight: 600; font-size: 11px; letter-spacing: .5px;color: #939393; cursor: default; text-align: -webkit-match-parent;">Card Number</label>
                             <div id="input--cc" class="creditcard-icon">
-                                <input type="text" name="cc_number" required="" />
+                                <input  style="width: calc(100% - 10px); min-height: 30px; padding-left: 5px; padding-right: 5px;letter-spacing: .5px; border: 0; border-bottom: 2px solid #f0f0f0;     font-family: sans-serif; font-size: 100%;line-height: 1.15; margin: 0; overflow: visible; padding: 1px 0px; -webkit-appearance: textfield; background-color: white;-webkit-rtl-ordering: logical; cursor: text; text-rendering: auto; color: initial; word-spacing: normal; text-transform: none; text-indent: 0px;  text-shadow: none; display: inline-block;   text-align: start; font: 400 13.3333px Arial; -webkit-writing-mode: horizontal-tb !important;" type="text" name="cc_number" required="" />
                             </div>
                         </li>
-                        <li class="form-list__row form-list__row--inline">
-                            <div>
-                                <label>Expiration Date</label>
+                        <li style="display:flex; -webkit-box-pack: justify;justify-content: space-between; margin-bottom: 25px; text-align: -webkit-match-parent;" class="form-list__row form-list__row--inline">
+                            <div style="-webkit-box-flex: 2; flex: 2; padding-right: 20px; display:block; text-align: -webkit-match-parent;" >
+                                <label style="position: relative; text-align: -webkit-match-parent; cursor: default; display: block; text-transform: uppercase;font-weight: 600;font-size: 11px;letter-spacing: .5px;color: #939393;">Expiration Date</label>
+                                
                                 <div class="form-list__input-inline">
-                                    <input type="text" name="cc_month" placeholder="MM" pattern="\\d*" minlength="2" maxlength="2" required="" />
-                                    <input type="text" name="cc_year" placeholder="YY" pattern="\\d*" minlength="2" maxlength="2" required="" />
+                                    <input style="width: calc(50% - 10px - 10px); min-height: 30px; -webkit-writing-mode: horizontal-tb !important; font: 400 13.3333px Arial; text-rendering: auto; color: initial; word-spacing: normal;   text-transform: none; text-indent: 0px;  text-shadow: none;   display: inline-block;text-align: start; padding-left: 5px; padding-right: 5px; letter-spacing: .5px; border: 0; border-bottom: 2px solid #f0f0f0; font-family: sans-serif; font-size: 100%; line-height: 1.15; margin: 0;     -webkit-appearance: textfield; background-color: white; -webkit-rtl-ordering: logical; cursor: text;    padding: 1px 0px; overflow: visible;" type="text" name="cc_month" placeholder="MM" pattern="\\d*" minlength="2" maxlength="2" required="" />
+                                   
+                                    <input style="width: calc(50% - 10px - 10px); min-height: 30px; font-family: sans-serif; overflow: visible; padding: 1px 0px;  -webkit-appearance: textfield; text-rendering: auto; -webkit-writing-mode: horizontal-tb !important; color: initial; word-spacing: normal; text-transform: none; text-indent: 0px; text-shadow: none; display: inline-block; text-align: start;  font: 400 13.3333px Arial; background-color: white;  -webkit-rtl-ordering: logical;cursor: text; font-size: 100%; line-height: 1.15; margin: 0; padding-left: 5px; padding-right: 5px; letter-spacing: .5px; border: 0; border-bottom: 2px solid #f0f0f0;" type="text" name="cc_year" placeholder="YY" pattern="\\d*" minlength="2" maxlength="2" required="" />
                                 </div>
                             </div>
-                            <div>
-                                <label>
-                                    CVC
+                            <div style="-webkit-box-flex: 1;flex: 1; display: block; text-align: -webkit-match-parent;">
+                                <label style="position: relative;  text-align: -webkit-match-parent;   cursor: default; display: block; text-transform: uppercase; font-weight: 600;  font-size: 11px; letter-spacing: .5px;  color: #939393;">
+                                    CVV
 
-                                    <a href="#cvv-modal" class="button--transparent modal-open button--info">
-                                        <svg class="nc-icon glyph" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="16px" height="16px" viewBox="0 0 16 16"><g> <path fill="#35a4fb" d="M8,0C3.6,0,0,3.6,0,8s3.6,8,8,8s8-3.6,8-8S12.4,0,8,0z M8,13c-0.6,0-1-0.4-1-1c0-0.6,0.4-1,1-1s1,0.4,1,1 C9,12.6,8.6,13,8,13z M9.5,8.4C9,8.7,9,8.8,9,9v1H7V9c0-1.3,0.8-1.9,1.4-2.3C8.9,6.4,9,6.3,9,6c0-0.6-0.4-1-1-1 C7.6,5,7.3,5.2,7.1,5.5L6.6,6.4l-1.7-1l0.5-0.9C5.9,3.6,6.9,3,8,3c1.7,0,3,1.3,3,3C11,7.4,10.1,8,9.5,8.4z"></path> </g></svg>
-                                        <span class="visuallyhidden">What is CVV?</span>
+                                    <a style="outline-width: 0; position: absolute; top: 0;right: 0; background: transparent; border: 0; outline: 0; color: -webkit-link;cursor: pointer;text-decoration: underline; text-transform: uppercase; font-weight: 600; text-align: -webkit-match-parent; font-size: 11px; letter-spacing: .5px; text-align: -webkit-match-parent; font-weight: 600; font-size: 11px; letter-spacing: .5px; cursor: pointer; text-decoration: underline; border: 0; outline: 0;"href="#cvv-modal" class="button--transparent modal-open button--info">
+                                        <svg style="overflow: hidden;  x: 0px; y: 0px; width: 16px; height: 16px; transform-origin: 50% 50% 0px; transform-origin: 0px 0px 0px;     color: -webkit-link; cursor: pointer; text-transform: uppercase;     text-align: -webkit-match-parent; font-weight: 600;font-size: 11px; letter-spacing: .5px;" class="nc-icon glyph" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="16px" height="16px" viewBox="0 0 16 16"><g> <path fill="#35a4fb" d="M8,0C3.6,0,0,3.6,0,8s3.6,8,8,8s8-3.6,8-8S12.4,0,8,0z M8,13c-0.6,0-1-0.4-1-1c0-0.6,0.4-1,1-1s1,0.4,1,1 C9,12.6,8.6,13,8,13z M9.5,8.4C9,8.7,9,8.8,9,9v1H7V9c0-1.3,0.8-1.9,1.4-2.3C8.9,6.4,9,6.3,9,6c0-0.6-0.4-1-1-1 C7.6,5,7.3,5.2,7.1,5.5L6.6,6.4l-1.7-1l0.5-0.9C5.9,3.6,6.9,3,8,3c1.7,0,3,1.3,3,3C11,7.4,10.1,8,9.5,8.4z"></path> </g></svg>
+                                        <span style="border: 0; clip: rect(0 0 0 0); height: 1px; margin: -1px;  overflow: hidden;  padding: 0;  position: absolute; width: 1px; color: -webkit-link; cursor: pointer; text-transform: uppercase; text-align: -webkit-match-parent; font-weight: 600; font-size: 11px; letter-spacing: .5px; "class="visuallyhidden">What is CVV?</span>
                                     </a>
                                 </label>
-                                <input type="text" name="cc_cvc" placeholder="123" pattern="\\d*" minlength="3" maxlength="4" required="" />
+                                <input style="width: calc(100% - 10px); min-height: 30px;   padding-left: 5px;    padding-right: 5px;    letter-spacing: .5px;    border: 0; font-family: sans-serif;     overflow: visible; -webkit-appearance: textfield; text-rendering: auto;     -webkit-writing-mode: horizontal-tb !important; color: initial; word-spacing: normal; text-transform: none; text-indent: 0px; text-shadow: none; display: inline-block;    text-align: start;    font: 400 13.3333px Arial; background-color: white;  -webkit-rtl-ordering: logical; cursor: text; padding: 1px 0px; font-size: 100%; line-height: 1.15;  margin: 0; border-bottom: 2px solid #f0f0f0;" type="text" name="cc_cvc" placeholder="123" pattern="\\d*" minlength="3" maxlength="4" required="" />
                             </div>
                         </li>
-                        <li class="form-list__row form-list__row--agree">
-                            <label>
-                                <input type="checkbox" name="save_cc" checked="checked">
+                        <li style="margin-top: 30px;     display: list-item; text-align: -webkit-match-parent; margin-bottom: 30px;  font-size: 12px;" class="form-list__row form-list__row--agree">
+                            <label style="position: relative; font-size: 11px; cursor: default; text-align: -webkit-match-parent; display: block; font-weight: 400;text-transform: none; color: #676767;">
+                                <input style="width: auto; border-color: #24cf5f; box-sizing: border-box; letter-spacing: .5px; min-height 30px; font-family: sans-serif; overflow: visible; -webkit-appearance: checkbox; background-color: initial; -webkit-rtl-ordering: logical; text-rendering: auto; color: initial; word-spacing: normal; text-transform: none; text-indent: 0px; text-shadow: none; display: inline-block;     -webkit-writing-mode: horizontal-tb !important; text-align: start;  font: 400 13.3333px Arial;cursor: default; font-size: 100%; line-height: 1.15; margin: 0; border: 0; border-bottom: 2px solid #f0f0f0; padding: 0; margin-right: 5px;" type="checkbox" name="save_cc" checked="checked">
                                 Save my card for future purchases
                             </label>
                         </li>
-                        <li>
-                            <button type="submit" class="button">Pay Now</button>
+                        <li style="display: list-item;text-align: -webkit-match-parent;">
+                            <button style="color: #ffffff;-webkit-writing-mode: horizontal-tb !important; -webkit-appearance: button; box-shadow: 3px 3px 20px rgba(0, 0, 0, 0.2); transition: all .2s; color: #ffffff; background-color: #24cf5f;   padding: 12px 25px; font-size: 12px; letter-spacing: 1px; text-transform: uppercase;  border: 0;   border-radius: 2px;  outline: 0;-webkit-writing-mode: horizontal-tb !important; word-spacing: normal; font-family: sans-serif; line-height: 1.15;  margin: 0; font: 400 13.3333px Arial; text-indent: 0px;text-shadow: none;  display: inline-block; text-rendering: auto; font-family: sans-serif;  align-items: flex-start;  text-align: center; cursor: default; text-rendering: auto;  word-spacing: normal; text-indent: 0px; text-shadow: none; display: inline-block;box-sizing:border-box; font: 400 13.3333px Arial; line-height: 1.15; overflow: visible; margin: 0; align-items: flex-start; box-sizing: border-box;  text-align: center;  cursor: default;" type="submit" class="button">Pay Now</button>
                         </li>
                     </ul>
                 </form>
