@@ -85,7 +85,7 @@ namespace SaafiMoney.Controllers
         {
 
 
-            var model = new NewRemittanceViewModel();
+            var model = new NewRemittanceViewModel(_senderService.GetAll((string)_userManager.GetUserId(User)).ToList());
 
             return View(model);
         }

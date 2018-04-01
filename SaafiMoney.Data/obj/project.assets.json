@@ -12541,12 +12541,15 @@
   },
   "project": {
     "version": "1.0.0",
+    "restoreSettings": {
+      "hideWarningsAndErrors": true
+    },
     "restore": {
-      "projectUniqueName": "C:\\Users\\abdik\\Desktop\\SaafiMoney\\SaafiMoney.Data\\SaafiMoney.Data.csproj",
+      "projectUniqueName": "C:\\Users\\abdik\\Documents\\GitHub\\SaafiMoney\\SaafiMoney.Data\\SaafiMoney.Data.csproj",
       "projectName": "SaafiMoney.Data",
-      "projectPath": "C:\\Users\\abdik\\Desktop\\SaafiMoney\\SaafiMoney.Data\\SaafiMoney.Data.csproj",
+      "projectPath": "C:\\Users\\abdik\\Documents\\GitHub\\SaafiMoney\\SaafiMoney.Data\\SaafiMoney.Data.csproj",
       "packagesPath": "C:\\Users\\abdik\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\abdik\\Desktop\\SaafiMoney\\SaafiMoney.Data\\obj\\",
+      "outputPath": "C:\\Users\\abdik\\Documents\\GitHub\\SaafiMoney\\SaafiMoney.Data\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
