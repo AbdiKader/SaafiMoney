@@ -11,7 +11,7 @@ namespace SaafiMoney.Data
 
         Remittance GetRemittanceById(int id);
         Recipient GetById(int id);
-        IEnumerable<Recipient> GetAll(string id);
+        IEnumerable<Recipient> GetAll(Sender sender);
         IEnumerable<Remittance> GetAllRemittances(string id);
         IEnumerable<Sender> GetAll();
        

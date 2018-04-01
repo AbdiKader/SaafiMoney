@@ -24,11 +24,11 @@ namespace SaafiMoney.Models.RemittanceViewModel
         {
             Recipients = new List<SelectListItem>();
 
-            foreach (var recipient in recipients)
+            foreach (Recipient recipient in recipients)
             {
                 Recipients.Add(new SelectListItem
                 {
-                    Value = ((int)recipient.ID).ToString(),
+                    Value = (recipient.ID).ToString(),
                     Text = recipient.FirstName.ToString()
                 });
             }

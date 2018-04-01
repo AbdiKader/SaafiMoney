@@ -15,11 +15,10 @@ namespace SaafiMoney.Controllers
     public class SenderController : Controller
     {
         private readonly ISender _senderService;
-
         private static UserManager<Sender> _userManager;
 
 
-        public SenderController(ISender senderService, UserManager<Sender> userManager)
+        public SenderController(ISender senderService, UserManager<Sender> userManager, ApplicationDbContext context)
         {
             _senderService = senderService;
             _userManager = userManager;
@@ -83,9 +82,10 @@ namespace SaafiMoney.Controllers
 
         public IActionResult Send()
         {
+            var id = _userManager.GetUserId(User);
+            var sender = _userManager.FindByIdAsync(id).Result;
 
-
-            var model = new NewRemittanceViewModel(_senderService.GetAll((string)_userManager.GetUserId(User)).ToList());
+            var model = new NewRemittanceViewModel(_senderService.GetAll(sender));
 
             return View(model);
         }
@@ -160,6 +160,7 @@ namespace SaafiMoney.Controllers
                 LastName = rec.LastName,
                 Country = rec.Country,
                 Phone = rec.Phone,
+
 
             });
 

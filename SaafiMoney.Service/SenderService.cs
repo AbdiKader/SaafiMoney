@@ -31,9 +31,8 @@ namespace SaafiMoney.Service
             throw new System.NotImplementedException();
         }
 
-        public IEnumerable<Recipient> GetAll(string id)
-        {
-            var sender = _context.Senders.Where(s => s.Id == id);
+        public IEnumerable<Recipient> GetAll(Sender sender)
+        { 
             return _context.Recipients
                 .Where(r => r.Sender == sender);
         }
