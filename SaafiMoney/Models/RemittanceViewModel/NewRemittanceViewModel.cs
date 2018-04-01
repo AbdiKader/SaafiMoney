@@ -20,11 +20,11 @@ namespace SaafiMoney.Models.RemittanceViewModel
         public List<SelectListItem> Recipients { get; set; }
         public NewRemittanceViewModel() { }
 
-        public NewRemittanceViewModel(IEnumerable<RecipientListingViewModel> recipients, Remittance remittance)
+        public NewRemittanceViewModel(IEnumerable<Recipient> recipients)
         {
             Recipients = new List<SelectListItem>();
 
-            foreach (RecipientListingViewModel recipient in recipients)
+            foreach (var recipient in recipients)
             {
                 Recipients.Add(new SelectListItem
                 {
