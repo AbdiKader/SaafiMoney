@@ -18,7 +18,7 @@ namespace SaafiMoney.Controllers
         private static UserManager<Sender> _userManager;
 
 
-        public SenderController(ISender senderService, UserManager<Sender> userManager, ApplicationDbContext context)
+        public SenderController(ISender senderService, UserManager<Sender> userManager)
         {
             _senderService = senderService;
             _userManager = userManager;
