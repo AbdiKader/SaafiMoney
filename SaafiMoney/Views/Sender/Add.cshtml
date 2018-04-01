@@ -53,11 +53,20 @@
 
 
 <body style="padding-top: 0px;">
+    <div>
+        <style scoped>
+            @@media(min-width: 768px) {
+                .on-the-fly-class-example {
+                    padding-left: 50px;
+                }
+            }
+        </style>
+    </div>
     <div class="navbar">
 
         <div style=" margin-left: auto; margin-right: auto; color:white; background-color: white; " class="container">
-            <div style="background-color:white;" class="navbar navbar-light topnav" id="myTopnav">
-                <a href="#home" style="padding-left:50px; background-color:white;" class="active">
+            <div style="background-color:white; margin-bottom:-20px;" class="navbar navbar-light topnav" id="myTopnav">
+                <a href="#home" class="on-the-fly-class-example"style="padding-left:50px; background-color:white;" class="active">
                     <img src="~/images/app_icon.png" style="width: 80px !important; margin-top: -5px !important" />
                     <p href="#" style="color:#337ab7; margin-left:15px"> Saafi</p>
                 </a>
@@ -68,14 +77,14 @@
                 <a href="#" style="color:#337ab7; padding-top:50px; margin-right: 45px;" class="pull-right">@await Html.PartialAsync("_LoginPartial")</a>
                 @*<ul style="margin-right:45px;"class="navbar-right d-inline-block"><li>@await Html.PartialAsync("_LoginPartial")</li></ul>*@
 
-                <a href="javascript:void(0);" class="icon" onclick="myFunction()">&#9776;</a>
+                <a href="javascript:void(0);" style="padding-left: 150px; padding-top:50px;" class="icon" onclick="myFunction()">&#9776;</a>
             </div>
         </div>
     </div>
     @*<div id="progressbar"></div>*@
     @*<div class="jumbotron span12 pagination-centered" style="background:white">
 
-    </div>*@
+        </div>*@
     <div style="width: 70%; margin-left: auto; margin-right: auto;" class="progress">
         <div class="progress-bar progress-bar-warning" role="progressbar" style="width:40%">
             Add Recipient
@@ -262,7 +271,7 @@
     <!-- Bootstrap core JavaScript -->
     <script src="vendor/jquery/jquery.min.js"></script>
     <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
-    </body>
+</body>
 
 
 
