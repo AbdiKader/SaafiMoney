@@ -12536,26 +12536,23 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\abdik\\.nuget\\packages\\": {},
+    "C:\\Users\\habdi\\.nuget\\packages\\": {},
     "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder": {}
   },
   "project": {
     "version": "1.0.0",
-    "restoreSettings": {
-      "hideWarningsAndErrors": true
-    },
     "restore": {
-      "projectUniqueName": "C:\\Users\\abdik\\Documents\\GitHub\\SaafiMoney\\SaafiMoney.Data\\SaafiMoney.Data.csproj",
+      "projectUniqueName": "C:\\Users\\habdi\\Documents\\GitHub\\SaafiMoney\\SaafiMoney.Data\\SaafiMoney.Data.csproj",
       "projectName": "SaafiMoney.Data",
-      "projectPath": "C:\\Users\\abdik\\Documents\\GitHub\\SaafiMoney\\SaafiMoney.Data\\SaafiMoney.Data.csproj",
-      "packagesPath": "C:\\Users\\abdik\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\abdik\\Documents\\GitHub\\SaafiMoney\\SaafiMoney.Data\\obj\\",
+      "projectPath": "C:\\Users\\habdi\\Documents\\GitHub\\SaafiMoney\\SaafiMoney.Data\\SaafiMoney.Data.csproj",
+      "packagesPath": "C:\\Users\\habdi\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\habdi\\Documents\\GitHub\\SaafiMoney\\SaafiMoney.Data\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
       ],
       "configFilePaths": [
-        "C:\\Users\\abdik\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\habdi\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
@@ -12579,19 +12576,19 @@
     "frameworks": {
       "netcoreapp2.0": {
         "dependencies": {
+          "Microsoft.AspNetCore.All": {
+            "target": "Package",
+            "version": "[2.0.5, )"
+          },
           "Microsoft.EntityFrameworkCore.Tools": {
             "target": "Package",
-            "version": "2.0.1"
+            "version": "[2.0.1, )"
           },
           "Microsoft.NETCore.App": {
             "suppressParent": "All",
             "target": "Package",
-            "version": "2.0",
+            "version": "[2.0.0, )",
             "autoReferenced": true
-          },
-          "Microsoft.AspNetCore.All": {
-            "target": "Package",
-            "version": "2.0.5"
           }
         },
         "imports": [

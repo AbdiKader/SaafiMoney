@@ -15,14 +15,5 @@ namespace SaafiMoney.Data
          public DbSet<Recipient> Recipients { get; set; }
          public DbSet<Sender> Senders { get; set; }
 
-        //public DbSet<SenderRemittance> SenderRemittance { get; set; }
-
-
-        //protected override void OnModelCreating(ModelBuilder modelBuilder)
-        //{
-        //    modelBuilder.Entity<SenderRemittance>()
-        //        .HasKey(c => new { c.LoadID, c.OwnerID });
-           
-        //}
     }
 }

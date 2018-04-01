@@ -41,6 +41,11 @@
 
     <link href="http://fonts.googleapis.com/css?family=Cookie" rel="stylesheet" type="text/css">
     @*@Html.Raw(JavaScriptSnippet.FullScript)*@
+    <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+    <link rel="stylesheet" href="/resources/demos/style.css">
+    <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+
 </head>
 
 
@@ -51,18 +56,32 @@
             <div style="background-color:white;" class="navbar navbar-light topnav" id="myTopnav">
                 <a href="#home" style="padding-left:50px; background-color:white;" class="active">
                     <img src="~/images/app_icon.png" style="width: 80px !important; margin-top: -5px !important" />
-                    <p href="#" style="margin-left:15px"> Saafi</p>
+                    <p href="#" style="color:#337ab7; margin-left:15px"> Saafi</p>
                 </a>
-                <a href="#">How It Works</a>
-                <a href="#">Contact Us</a>
-                <a href="#">Our Story</a>
-                <a href="#">Help</a>
-                <a href="#" style="margin-right: 45px;" class="pull-right">@await Html.PartialAsync("_LoginPartial")</a>
+                <a href="#"  style="color:#337ab7; padding-top:50px;">How It Works</a>
+                <a href="#"  style="color:#337ab7; padding-top:50px;">Contact Us</a>
+                <a href="#"  style="color:#337ab7; padding-top:50px;">Our Story</a>
+                <a href="#"  style="color:#337ab7; padding-top:50px;">Help</a>
+                <a href="#" style="color:#337ab7; padding-top:50px; margin-right: 45px;" class="pull-right">@await Html.PartialAsync("_LoginPartial")</a>
                 @*<ul style="margin-right:45px;"class="navbar-right d-inline-block"><li>@await Html.PartialAsync("_LoginPartial")</li></ul>*@
 
                 <a href="javascript:void(0);" class="icon" onclick="myFunction()">&#9776;</a>
             </div>
         </div>
+    </div>
+    <div style="width: 70%; margin-left: auto; margin-right: auto;" class="progress">
+        <div class="progress-bar progress-bar-success" role="progressbar" style="width:40%">
+            Add Recipient
+        </div>
+        <div class="progress-bar progress-bar-warning" role="progressbar" style="width:40%">
+            Choose Amount
+        </div>
+        @*<div class="progress-bar progress-bar-warning" role="progressbar" style="width:10%">
+            Warning
+        </div>
+        <div class="progress-bar progress-bar-danger" role="progressbar" style="width:20%">
+            Danger
+        </div>*@
     </div>
 
     <!-- Masthead -->
@@ -75,10 +94,10 @@
     </div>
 
 
-    <form style="width: 70%; margin-left: auto; margin-right: auto;" asp-controller="Sender" asp-action="Add" method="post">
+    <form style="width: 70%; margin-left: auto; margin-right: auto;" asp-controller="Sender" asp-action="send" method="post">
         <div class="form-group">
             <label>Recipient Name</label>
-            <select asp-for="RecipientId" class="form-control" style="width:30%;"asp-items="Model.Recipients">
+            <select asp-for="RecipientId" class="form-control" style="width:30%;" asp-items="Model.Recipients">
                 <option value="">-- Select Category --</option>
             </select>
             <span asp-validation-for="RecipientId" class="text-danger" />
@@ -102,10 +121,16 @@
             <input asp-for="Recipient.Country" class="form-control visible-xs-block mobile-add" />
             <span asp-validation-for="Recipient.Country" class="text-danger"></span>
         </div>
+        <div class="form-group">
+            <label>Amount</label>
+            <input asp-for="Amount" style="width:30%;" class="form-control hidden-xs" />
+            <input asp-for="Amount" class="form-control visible-xs-block mobile-add" />
+            <span asp-validation-for="Amount" class="text-danger"></span>
+        </div>
         <input type="submit" value="Send" class="hidden-xs btn btn-success" />
         <input type="submit" value="Send" class="visible-xs-block mobile-add btn btn-success" />
 
-        
+
     </form>
     </div>
     </br>
@@ -114,12 +139,6 @@
 
 
     </div>
-    <div style="width: 70%; margin-left: auto; margin-right: auto;" class="table table-striped">
-        <a asp-controller="Sender" asp-action="Add" class="hidden-xs btn btn-success btn-sm">+ Add Recipient</a>
-        <a asp-controller="Sender" asp-action="Send" class="hidden-xs btn btn-info btn-sm pull-right">+ New Remittance</a>
-    </div>
-
-
 
 
     </br>

@@ -40,6 +40,14 @@ namespace SaafiMoney.Controllers
 
             return View(model);
         }
+        public IActionResult Process()
+        {
+            var id = _userManager.GetUserId(User);
+            var sender = _senderService.GetById(id);
+            var model = BuildSenderHome(sender);
+
+            return View("Process");
+        }
         public IActionResult Transactions()
         {
             var id = _userManager.GetUserId(User);
@@ -65,7 +73,7 @@ namespace SaafiMoney.Controllers
 
             var recipient = BuildNewRecipient(model, sender);
             await _senderService.Add(recipient);
-            return RedirectToAction("Index");
+            return RedirectToAction("Send");
         }
 
         private Recipient BuildNewRecipient(NewRecipientViewModel model, Sender sender)
@@ -98,7 +106,8 @@ namespace SaafiMoney.Controllers
 
             var remittance = BuildNewRemittance(model, sender);
             await _senderService.Send(remittance);
-            return RedirectToAction("Transactions");
+            return RedirectToAction("Process");
+            
         }
 
         private Remittance BuildNewRemittance(NewRemittanceViewModel model, Sender sender)
