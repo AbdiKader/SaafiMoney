@@ -39,29 +39,38 @@
     <link href="http://fonts.googleapis.com/css?family=Cookie" rel="stylesheet" type="text/css">
     @*@Html.Raw(JavaScriptSnippet.FullScript)*@
 </head>
+<div>
+    <style scoped>
+        @@media(min-width: 768px) {
+            .on-the-fly-class-example {
+                padding-left: 50px;
+            }
+        }
 
+    </style>
+</div>
 
 
 <body style="padding-top: 0px;">
     <div class="">
 
         <div style=" margin-left: auto; margin-right: auto; background-color: white;" class="container" >
-            <div style="background-color:white; justify-content:unset;" class="navbar navbar-light topnav" id="myTopnav">
-                <a href="#home" style="padding-left:50px; background-color:white;" class="active">
+            <div style="background-color:white; justify-content:unset; margin-bottom:-30px;" class="navbar navbar-light topnav" id="myTopnav">
+                <a href="#home" class="on-the-fly-class-example"style=" background-color:white;" class="active">
                     <img src="~/images/app_icon.png" style="width: 80px !important; margin-top: -5px !important" />
                     <p href="#" style="color:#337ab7; margin-left:15px"> SaafiCash</p>
                 </a>
-                <a href="#" style="color:#337ab7; padding-top:50px;">How It Works</a>
-                <a href="#" style="color:#337ab7; padding-top:50px;">Contact Us</a>
-                <a href="#" style="color:#337ab7; padding-top:50px;">Our Story</a>
-                <a href="#" style="color:#337ab7; padding-top:50px;">Help</a>
-                <a href="#" style="color:#337ab7; padding-top:50px; " class="pull-right">@await Html.PartialAsync("_LoginPartial")</a>
-                @*<ul style="margin-right:45px;"class="navbar-right d-inline-block"><li>@await Html.PartialAsync("_LoginPartial")</li></ul>*@
+                <a href="#" style="color:#337ab7; padding-top:10px;">How It Works</a>
+                <a href="#" style="color:#337ab7; padding-top:10px;">Contact Us</a>
+                <a href="#" style="color:#337ab7; padding-top:10px;">Our Story</a>
+                <a href="#" style="color:#337ab7; padding-top:10px;">Help</a>
+                <a href="#" style="color:#337ab7; padding-top:10px;" >@await Html.PartialAsync("_LoginPartial")</a>
 
-                <a href="javascript:void(0);" class="icon" onclick="myFunction()">&#9776;</a>
+                <a href="javascript:void(0);" style="padding-left:150px;"class="icon" onclick="myFunction()">&#9776;</a>
             </div>
         </div>
     </div>
+
 
     <!-- Masthead -->
     <header style="height: 80vh;" class="masthead text-white text-center">
