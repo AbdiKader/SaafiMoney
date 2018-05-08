@@ -125,23 +125,6 @@
             <label>Amount</label>
             <input asp-for="Amount" style="width:30%;" class="form-control hidden-xs" />
             <input asp-for="Amount" class="form-control visible-xs-block mobile-add" />
-      
-            @{
-                decimal total = 0;
-                if (Model.Amount > 0)
-                {
-
-                    total = Model.Amount + (Model.Amount * 0.06m);
-                @:<span>
-                    }
-                if (Model.Amount > 0)
-                {
-                    @:Your Total is @total
-                @:</span>
-
-                }
-            }
-           
             <span asp-validation-for="Amount" class="text-danger"></span>
         </div>
         <input type="submit" value="Send" class="hidden-xs btn btn-success" />

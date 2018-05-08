@@ -3253,6 +3253,21 @@
           "lib/netstandard1.5/StackExchange.Redis.StrongName.dll": {}
         }
       },
+      "Stripe.net/15.8.0": {
+        "type": "package",
+        "dependencies": {
+          "NETStandard.Library": "1.6.1",
+          "Newtonsoft.Json": "9.0.1",
+          "System.Console": "4.3.0",
+          "System.Security.Cryptography.Algorithms": "4.3.0"
+        },
+        "compile": {
+          "lib/netstandard1.2/Stripe.net.dll": {}
+        },
+        "runtime": {
+          "lib/netstandard1.2/Stripe.net.dll": {}
+        }
+      },
       "System.AppContext/4.3.0": {
         "type": "package",
         "dependencies": {
@@ -5034,7 +5049,8 @@
         "framework": ".NETCoreApp,Version=v2.0",
         "dependencies": {
           "Microsoft.AspNetCore.All": "2.0.5",
-          "Microsoft.EntityFrameworkCore.Tools": "2.0.1"
+          "Microsoft.EntityFrameworkCore.Tools": "2.0.1",
+          "Stripe.net": "15.8.0"
         },
         "compile": {
           "bin/placeholder/SaafiMoney.Data.dll": {}
@@ -5047,7 +5063,8 @@
         "type": "project",
         "framework": ".NETCoreApp,Version=v2.0",
         "dependencies": {
-          "SaafiMoney.Data": "1.0.0"
+          "SaafiMoney.Data": "1.0.0",
+          "Stripe.net": "15.8.0"
         },
         "compile": {
           "bin/placeholder/SaafiMoney.Service.dll": {}
@@ -8456,6 +8473,17 @@
         "lib/netstandard1.5/StackExchange.Redis.StrongName.xml",
         "stackexchange.redis.strongname.1.2.4.nupkg.sha512",
         "stackexchange.redis.strongname.nuspec"
+      ]
+    },
+    "Stripe.net/15.8.0": {
+      "sha512": "sJP7DoPrvrLdREf2L27pCNkLnp2krkvfA9jA/++hEGjQARFysIm11M1lksfWPdXTooWY+TFNDg1aGpS919FQ2A==",
+      "type": "package",
+      "path": "stripe.net/15.8.0",
+      "files": [
+        "lib/net45/Stripe.net.dll",
+        "lib/netstandard1.2/Stripe.net.dll",
+        "stripe.net.15.8.0.nupkg.sha512",
+        "stripe.net.nuspec"
       ]
     },
     "System.AppContext/4.3.0": {
@@ -13159,7 +13187,8 @@
       "Microsoft.NETCore.App >= 2.0.0",
       "Microsoft.VisualStudio.Web.CodeGeneration.Design >= 2.0.2",
       "SaafiMoney.Data >= 1.0.0",
-      "SaafiMoney.Service >= 1.0.0"
+      "SaafiMoney.Service >= 1.0.0",
+      "Stripe.net >= 15.8.0"
     ]
   },
   "packageFolders": {
@@ -13231,6 +13260,10 @@
           "Microsoft.AspNetCore.All": {
             "target": "Package",
             "version": "2.0.5"
+          },
+          "Stripe.net": {
+            "target": "Package",
+            "version": "15.8.0"
           }
         },
         "imports": [

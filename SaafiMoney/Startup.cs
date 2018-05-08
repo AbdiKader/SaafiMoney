@@ -12,6 +12,7 @@ using SaafiMoney.Data;
 using SaafiMoney.Data.Models;
 using SaafiMoney.Services;
 using SaafiMoney.Service;
+using Stripe;
 
 namespace SaafiMoney
 {
@@ -29,7 +30,7 @@ namespace SaafiMoney
         {
             services.AddDbContext<ApplicationDbContext>(options =>
                 options.UseSqlServer(Configuration.GetConnectionString("DefaultConnection")));
-
+            services.Configure<StripeSettings>(Configuration.GetSection("Stripe"));
             services.AddIdentity<Sender, IdentityRole>()
                 .AddEntityFrameworkStores<ApplicationDbContext>()
                 .AddDefaultTokenProviders();
@@ -86,6 +87,7 @@ namespace SaafiMoney
             }
 
             app.UseStaticFiles();
+            StripeConfiguration.SetApiKey(Configuration.GetSection("Stripe")["SecretKey"]);
 
             app.UseAuthentication();
 
